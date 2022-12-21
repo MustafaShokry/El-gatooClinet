@@ -392,6 +392,11 @@ public class MainChattingWindow extends javax.swing.JFrame {
         searchContainerPanel.setBackground(colors.getSecondaryColor());
         searchTextField.setBackground(colors.getSecondaryColor());
     }
+    public void reSizeAfterMessage(int height){
+        if(chatMessagesPanel.getHeight() > 530){
+            chatMessagesPanel.setPreferredSize(new java.awt.Dimension(600, chatMessagesPanel.getHeight() + height));
+        }
+    }
     /**
      * @return the MainWindowPanel
      */
