@@ -11,7 +11,7 @@ public class MainLogic {
     private static MainChattingWindow mainWindow = null;
 
     private MainLogic() {
-        colors = GUIColors.getColors(false);
+        colors = GUIColors.getColors(true);
     }
 
     public static MainLogic getMainLogic() {
@@ -36,11 +36,10 @@ public class MainLogic {
         } catch (Exception ex) {
             System.err.println("Failed to initialize LaF");
         }
-        colors.changeMode();
         //Getting the mainWindow object for the main window GUI and passing the color schema to it
         mainWindow = MainChattingWindow.getMainWindow(colors);
         //Passing the mainWindow GUI for logic handler for main chatting window
-        MainWindowLogic mainWindowLogic = MainWindowLogic.getMainWindowLogic(mainWindow, mainLogic);
+        MainWindowLogic mainWindowLogic = MainWindowLogic.getMainWindowLogic(mainWindow, mainLogic, colors);
         //Setting up the Logic for main chating window
         mainWindowLogic.setupLogic();
 
