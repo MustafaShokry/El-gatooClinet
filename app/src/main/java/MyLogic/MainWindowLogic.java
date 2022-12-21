@@ -32,46 +32,40 @@ public class MainWindowLogic {
         return mainWindowLogic;
     }
 
-    public void setupLogic() {
-
+    public void setup() {
+        //Setting up Layouts
+        mainWindowGUI.getChatMessagesPanel().setLayout(new net.miginfocom.swing.MigLayout("fillx"));
+        mainWindowGUI.getChatsPanel().setLayout(new net.miginfocom.swing.MigLayout("fillx"));
     }
 
     public void start() {
         mainWindowGUI.setVisible(true);
     }
+
+    public void renderContact(String name) {
+        ChatContactPanel ccp = new ChatContactPanel(colors, name);
+        mainWindowGUI.getChatsPanel().add(ccp, "wrap, al center");
+        mainWindowGUI.getChatsPanel().repaint();
+        mainWindowGUI.getChatsPanel().revalidate();
+    }
+
+    public void renderMessage(String text, boolean thisUser) {
+        ChatMessagePanel cmp = new ChatMessagePanel(colors, text, thisUser);
+        mainWindowGUI.getChatMessagesPanel().add(cmp, thisUser ?  "wrap, al right" : "wrap, al left");
+        mainWindowGUI.reSizeAfterMessage(cmp.getMessageHeight());
+        mainWindowGUI.getChatMessagesPanel().repaint();
+        mainWindowGUI.getChatMessagesPanel().revalidate();
+    }
+
     public void testing() {
-        mainWindowGUI.getChatMessagesPanel().setLayout(new net.miginfocom.swing.MigLayout("fillx"));
-        mainWindowGUI.getChatsPanel().setLayout(new net.miginfocom.swing.MigLayout("fillx"));
+
         mainWindowGUI.getChatSendIconLabel().addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-
-                ChatMessagePanel cmp = new ChatMessagePanel("Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa", new java.awt.Color(0xBBA0CA), new Color(0, 0, 0));
-                mainWindowGUI.getChatMessagesPanel().add(cmp, "wrap, al left");
-                mainWindowGUI.reSizeAfterMessage(cmp.getMessageHeight());
-                mainWindowGUI.getChatMessagesPanel().repaint();
-                mainWindowGUI.getChatMessagesPanel().revalidate();
-
-                ChatMessagePanel cmp2 = new ChatMessagePanel("Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa", new Color(0x89B6A5), new Color(0, 0, 0));
-                mainWindowGUI.getChatMessagesPanel().add(cmp2, "wrap, al right");
-                mainWindowGUI.reSizeAfterMessage(cmp2.getMessageHeight());
-                mainWindowGUI.getChatMessagesPanel().repaint();
-                mainWindowGUI.getChatMessagesPanel().revalidate();
-
-                ChatMessagePanel cmp3 = new ChatMessagePanel("hellow", new Color(0x89B6A5), new Color(0, 0, 0));
-                mainWindowGUI.reSizeAfterMessage(cmp3.getMessageHeight());
-                mainWindowGUI.getChatMessagesPanel().add(cmp3, "wrap, al right");
-
-                mainWindowGUI.getChatMessagesPanel().repaint();
-                mainWindowGUI.getChatMessagesPanel().revalidate();
+                renderContact("Mostafa Mohammed");
+                renderMessage("Hellow", true);
+                renderMessage("hi there", false);
                 //mainLogic.changeMode();
-                
-                
-                ChatContactPanel ccp = new ChatContactPanel(colors,"Mostafa Shokry");
-                mainWindowGUI.getChatsPanel().add(ccp,"wrap, al center");
-                mainWindowGUI.getChatsPanel().repaint();
-                mainWindowGUI.getChatsPanel().revalidate();
-                
             }
 
         });
@@ -88,10 +82,6 @@ class Contact {
         this.ID = id;
         this.name = name;
 
-    }
-    public void renderContact(){
-        //TODO:
-        
     }
 
     /**
