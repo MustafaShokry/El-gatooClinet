@@ -40,8 +40,8 @@ public class MainLogic {
         mainWindow = MainChattingWindow.getMainWindow(colors);
         //Passing the mainWindow GUI for logic handler for main chatting window
         MainWindowLogic mainWindowLogic = MainWindowLogic.getMainWindowLogic(mainWindow, mainLogic, colors);
-        //Setting up the Logic for main chating window
-        mainWindowLogic.setupLogic();
+        //Setting up the Logic and layouts for main chating window
+        mainWindowLogic.setup();
 
         mainWindowLogic.testing();
         //Showing the GUI
