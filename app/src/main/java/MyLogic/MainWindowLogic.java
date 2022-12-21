@@ -42,19 +42,19 @@ public class MainWindowLogic {
             @Override
             public void mouseClicked(MouseEvent e) {
 
-                ChatMessagePanel cmp = new ChatMessagePanel("Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa", new java.awt.Color(83, 216, 251), new Color(0, 0, 0));
+                ChatMessagePanel cmp = new ChatMessagePanel("Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa", new java.awt.Color(0xBBA0CA), new Color(0, 0, 0));
                 mainWindowGUI.getChatMessagesPanel().add(cmp, "wrap, al left");
                 mainWindowGUI.getChatMessagesPanel().setPreferredSize(new java.awt.Dimension(600, mainWindowGUI.getChatMessagesPanel().getHeight() + cmp.getMessageHeight()));
                 mainWindowGUI.getChatMessagesPanel().repaint();
                 mainWindowGUI.getChatMessagesPanel().revalidate();
 
-                ChatMessagePanel cmp2 = new ChatMessagePanel("Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa", new Color(253, 245, 211), new Color(0, 0, 0));
+                ChatMessagePanel cmp2 = new ChatMessagePanel("Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa", new Color(0x89B6A5), new Color(0, 0, 0));
                 mainWindowGUI.getChatMessagesPanel().add(cmp2, "wrap, al right");
                 mainWindowGUI.getChatMessagesPanel().setPreferredSize(new java.awt.Dimension(600, mainWindowGUI.getChatMessagesPanel().getHeight() + cmp2.getMessageHeight()));
                 mainWindowGUI.getChatMessagesPanel().repaint();
                 mainWindowGUI.getChatMessagesPanel().revalidate();
 
-                ChatMessagePanel cmp3 = new ChatMessagePanel("hellow", new Color(253, 245, 211), new Color(0, 0, 0));
+                ChatMessagePanel cmp3 = new ChatMessagePanel("hellow", new Color(0x89B6A5), new Color(0, 0, 0));
                 mainWindowGUI.getChatMessagesPanel().setPreferredSize(new java.awt.Dimension(600, mainWindowGUI.getChatMessagesPanel().getHeight() + cmp3.getMessageHeight()));
                 mainWindowGUI.getChatMessagesPanel().add(cmp3, "wrap, al right");
 
