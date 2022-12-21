@@ -1,5 +1,6 @@
 package MyLogic;
 
+import MyGUI.ChatContactPanel;
 import MyGUI.ChatMessagePanel;
 import MyGUI.GUIColors;
 import MyGUI.MainChattingWindow;
@@ -13,7 +14,7 @@ public class MainWindowLogic {
     private static MainWindowLogic mainWindowLogic = null;
     private static MainLogic mainLogic = null;
     GUIColors colors = null;
-    
+
     private MainWindowLogic(MainChattingWindow mw, MainLogic ml, GUIColors cls) {
         mainLogic = ml;
         mainWindowGUI = mw;
@@ -32,15 +33,15 @@ public class MainWindowLogic {
     }
 
     public void setupLogic() {
-        
+
     }
 
     public void start() {
         mainWindowGUI.setVisible(true);
     }
-
     public void testing() {
         mainWindowGUI.getChatMessagesPanel().setLayout(new net.miginfocom.swing.MigLayout("fillx"));
+        mainWindowGUI.getChatsPanel().setLayout(new net.miginfocom.swing.MigLayout("fillx"));
         mainWindowGUI.getChatSendIconLabel().addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -63,13 +64,66 @@ public class MainWindowLogic {
 
                 mainWindowGUI.getChatMessagesPanel().repaint();
                 mainWindowGUI.getChatMessagesPanel().revalidate();
-                mainLogic.changeMode();
+                //mainLogic.changeMode();
+                
+                
+                ChatContactPanel ccp = new ChatContactPanel(colors,"Mostafa Shokry");
+                mainWindowGUI.getChatsPanel().add(ccp,"wrap, al center");
+                mainWindowGUI.getChatsPanel().repaint();
+                mainWindowGUI.getChatsPanel().revalidate();
+                
             }
 
         });
     }
 
 }
+
+class Contact {
+
+    private int ID;
+    private String name;
+
+    public Contact(int id, String name) {
+        this.ID = id;
+        this.name = name;
+
+    }
+    public void renderContact(){
+        //TODO:
+        
+    }
+
+    /**
+     * @return the ID
+     */
+    public int getID() {
+        return ID;
+    }
+
+    /**
+     * @param ID the ID to set
+     */
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+}
+//load contacts from db and put them in an array of contact objects
 
 interface IMessage {
 
