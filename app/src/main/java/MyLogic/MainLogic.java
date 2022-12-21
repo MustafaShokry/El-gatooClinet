@@ -11,7 +11,7 @@ public class MainLogic {
     private static MainChattingWindow mainWindow = null;
 
     private MainLogic() {
-        colors = GUIColors.getColors(true);
+        colors = GUIColors.getColors(false);
     }
 
     public static MainLogic getMainLogic() {
