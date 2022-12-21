@@ -51,26 +51,27 @@ public class MainChattingWindow extends javax.swing.JFrame {
         otherUserStateLabel = new javax.swing.JLabel();
         otherUserInfoIconPanel = new javax.swing.JPanel();
         otherUserInfoIconLabel = new javax.swing.JLabel();
-        chatSendPanel = new javax.swing.JPanel();
-        chatSendTextField = new javax.swing.JFormattedTextField();
-        chatSendIconLabel = new javax.swing.JLabel();
         chatMessagesContainerPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         chatMessagesPanel = new javax.swing.JPanel();
+        chatSendPanel = new javax.swing.JPanel();
+        chatSendTextField = new javax.swing.JFormattedTextField();
+        chatSendIconLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(970, 800));
-        setMinimumSize(new java.awt.Dimension(970, 800));
+        setMaximumSize(new java.awt.Dimension(970, 732));
+        setMinimumSize(new java.awt.Dimension(970, 732));
+        setPreferredSize(new java.awt.Dimension(970, 732));
 
-        MainWindowPanel.setMaximumSize(new java.awt.Dimension(970, 800));
-        MainWindowPanel.setMinimumSize(new java.awt.Dimension(970, 800));
-        MainWindowPanel.setPreferredSize(new java.awt.Dimension(970, 800));
+        MainWindowPanel.setMaximumSize(new java.awt.Dimension(970, 732));
+        MainWindowPanel.setMinimumSize(new java.awt.Dimension(970, 732));
+        MainWindowPanel.setPreferredSize(new java.awt.Dimension(970, 732));
         MainWindowPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         sideBarPanel.setBackground(colors.getMainColor());
-        sideBarPanel.setMaximumSize(new java.awt.Dimension(60, 800));
-        sideBarPanel.setMinimumSize(new java.awt.Dimension(60, 800));
-        sideBarPanel.setPreferredSize(new java.awt.Dimension(60, 800));
+        sideBarPanel.setMaximumSize(new java.awt.Dimension(60, 695));
+        sideBarPanel.setMinimumSize(new java.awt.Dimension(60, 695));
+        sideBarPanel.setPreferredSize(new java.awt.Dimension(60, 695));
         sideBarPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         mainLogoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/mainLogo.png"))); // NOI18N
@@ -121,7 +122,7 @@ public class MainChattingWindow extends javax.swing.JFrame {
         userProfileIconLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/userProfile.png"))); // NOI18N
         userProfileIconPanel.add(userProfileIconLabel, new java.awt.GridBagConstraints());
 
-        sideBarPanel.add(userProfileIconPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 680, -1, -1));
+        sideBarPanel.add(userProfileIconPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 580, -1, -1));
 
         addContactIconPanel.setBackground(colors.getMainColor());
         addContactIconPanel.setMaximumSize(new java.awt.Dimension(60, 40));
@@ -132,7 +133,7 @@ public class MainChattingWindow extends javax.swing.JFrame {
         addContactIconLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/addContactForDark.png"))); // NOI18N
         addContactIconPanel.add(addContactIconLabel, new java.awt.GridBagConstraints());
 
-        sideBarPanel.add(addContactIconPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 740, -1, -1));
+        sideBarPanel.add(addContactIconPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 640, -1, -1));
 
         MainWindowPanel.add(sideBarPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -173,9 +174,9 @@ public class MainChattingWindow extends javax.swing.JFrame {
 
         chatsPanel.setBackground(colors.getMainColor());
         chatsPanel.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 1, 0, 0, new java.awt.Color(39, 40, 49)));
-        chatsPanel.setMaximumSize(new java.awt.Dimension(310, 720));
-        chatsPanel.setMinimumSize(new java.awt.Dimension(310, 720));
-        chatsPanel.setPreferredSize(new java.awt.Dimension(310, 720));
+        chatsPanel.setMaximumSize(new java.awt.Dimension(60, 695));
+        chatsPanel.setMinimumSize(new java.awt.Dimension(60, 695));
+        chatsPanel.setPreferredSize(new java.awt.Dimension(310, 615));
         chatsPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         MainWindowPanel.add(chatsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, -1, -1));
 
@@ -238,6 +239,53 @@ public class MainChattingWindow extends javax.swing.JFrame {
 
         MainWindowPanel.add(chatHeaderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, -1, -1));
 
+        chatMessagesContainerPanel.setBackground(new java.awt.Color(31, 32, 41));
+        chatMessagesContainerPanel.setMaximumSize(new java.awt.Dimension(600, 535));
+        chatMessagesContainerPanel.setMinimumSize(new java.awt.Dimension(600, 535));
+        chatMessagesContainerPanel.setPreferredSize(new java.awt.Dimension(600, 535));
+
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        jScrollPane1.setAutoscrolls(true);
+        jScrollPane1.setMaximumSize(new java.awt.Dimension(600, 535));
+        jScrollPane1.setMinimumSize(new java.awt.Dimension(600, 535));
+        jScrollPane1.setNextFocusableComponent(chatMessagesPanel);
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(600, 535));
+        jScrollPane1.setViewportView(chatMessagesPanel);
+
+        chatMessagesPanel.setBackground(colors.getSecondaryColor());
+        chatMessagesPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 12));
+        chatMessagesPanel.setAutoscrolls(true);
+        chatMessagesPanel.setMaximumSize(new java.awt.Dimension(600, 535));
+        chatMessagesPanel.setMinimumSize(new java.awt.Dimension(600, 535));
+        chatMessagesPanel.setPreferredSize(new java.awt.Dimension(600, 535));
+
+        javax.swing.GroupLayout chatMessagesPanelLayout = new javax.swing.GroupLayout(chatMessagesPanel);
+        chatMessagesPanel.setLayout(chatMessagesPanelLayout);
+        chatMessagesPanelLayout.setHorizontalGroup(
+            chatMessagesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        chatMessagesPanelLayout.setVerticalGroup(
+            chatMessagesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        jScrollPane1.setViewportView(chatMessagesPanel);
+
+        javax.swing.GroupLayout chatMessagesContainerPanelLayout = new javax.swing.GroupLayout(chatMessagesContainerPanel);
+        chatMessagesContainerPanel.setLayout(chatMessagesContainerPanelLayout);
+        chatMessagesContainerPanelLayout.setHorizontalGroup(
+            chatMessagesContainerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        chatMessagesContainerPanelLayout.setVerticalGroup(
+            chatMessagesContainerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        MainWindowPanel.add(chatMessagesContainerPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 80, -1, -1));
+
         chatSendPanel.setBackground(colors.getMainColor());
         chatSendPanel.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 1, 0, 0, new java.awt.Color(39, 40, 49)));
         chatSendPanel.setMaximumSize(new java.awt.Dimension(600, 80));
@@ -264,47 +312,7 @@ public class MainChattingWindow extends javax.swing.JFrame {
         chatSendIconLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/send.png"))); // NOI18N
         chatSendPanel.add(chatSendIconLabel, new java.awt.GridBagConstraints());
 
-        MainWindowPanel.add(chatSendPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 720, -1, -1));
-
-        chatMessagesContainerPanel.setBackground(new java.awt.Color(31, 32, 41));
-        chatMessagesContainerPanel.setMaximumSize(new java.awt.Dimension(600, 640));
-        chatMessagesContainerPanel.setMinimumSize(new java.awt.Dimension(600, 640));
-        chatMessagesContainerPanel.setPreferredSize(new java.awt.Dimension(600, 640));
-
-        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-
-        chatMessagesPanel.setBackground(colors.getSecondaryColor());
-        chatMessagesPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 12));
-        chatMessagesPanel.setAutoscrolls(true);
-        chatMessagesPanel.setMaximumSize(new java.awt.Dimension(600, 640));
-        chatMessagesPanel.setMinimumSize(new java.awt.Dimension(600, 640));
-        chatMessagesPanel.setPreferredSize(new java.awt.Dimension(600, 640));
-
-        javax.swing.GroupLayout chatMessagesPanelLayout = new javax.swing.GroupLayout(chatMessagesPanel);
-        chatMessagesPanel.setLayout(chatMessagesPanelLayout);
-        chatMessagesPanelLayout.setHorizontalGroup(
-            chatMessagesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        chatMessagesPanelLayout.setVerticalGroup(
-            chatMessagesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        jScrollPane1.setViewportView(chatMessagesPanel);
-
-        javax.swing.GroupLayout chatMessagesContainerPanelLayout = new javax.swing.GroupLayout(chatMessagesContainerPanel);
-        chatMessagesContainerPanel.setLayout(chatMessagesContainerPanelLayout);
-        chatMessagesContainerPanelLayout.setHorizontalGroup(
-            chatMessagesContainerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        chatMessagesContainerPanelLayout.setVerticalGroup(
-            chatMessagesContainerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-
-        MainWindowPanel.add(chatMessagesContainerPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 80, -1, -1));
+        MainWindowPanel.add(chatSendPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 615, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -319,7 +327,7 @@ public class MainChattingWindow extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
+            .addGap(0, 733, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
