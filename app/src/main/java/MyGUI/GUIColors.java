@@ -33,6 +33,7 @@ public class GUIColors {
     private void setUpColors(){
         mainColor = mode ? new java.awt.Color(31, 32, 41) : new java.awt.Color(252,252,253);
         secondaryColor = mode ? new java.awt.Color(23,24,31) : new java.awt.Color(252, 252, 253);
+        mainFontColor = mode ? new java.awt.Color(0xF6F6F7) : new java.awt.Color(0x000000);
     }
     /**
      * @return the mode
