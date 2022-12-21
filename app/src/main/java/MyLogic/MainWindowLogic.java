@@ -73,46 +73,7 @@ public class MainWindowLogic {
 
 }
 
-class Contact {
 
-    private int ID;
-    private String name;
-
-    public Contact(int id, String name) {
-        this.ID = id;
-        this.name = name;
-
-    }
-
-    /**
-     * @return the ID
-     */
-    public int getID() {
-        return ID;
-    }
-
-    /**
-     * @param ID the ID to set
-     */
-    public void setID(int ID) {
-        this.ID = ID;
-    }
-
-    /**
-     * @return the name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * @param name the name to set
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-}
 //load contacts from db and put them in an array of contact objects
 
 interface IMessage {
