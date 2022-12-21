@@ -38,7 +38,7 @@ public class ChatMessagePanel extends javax.swing.JPanel {
             javax.swing.JLabel label = new javax.swing.JLabel();
             textRender(rowsList.get(i), i * 2, label);
         }
-        messageHeight = rowsList.size() * 100;
+        messageHeight = rowsList.size() * 240;
     }
 
     void textRender(String text, int gridy, javax.swing.JLabel jLabel) {
