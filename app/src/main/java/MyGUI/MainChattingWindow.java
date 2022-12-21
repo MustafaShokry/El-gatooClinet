@@ -390,7 +390,7 @@ public class MainChattingWindow extends javax.swing.JFrame {
     public javax.swing.JPanel getMainWindowPanel() {
         return MainWindowPanel;
     }
-
+    //..
     /**
      * @return the MainWindowPanel
      */
