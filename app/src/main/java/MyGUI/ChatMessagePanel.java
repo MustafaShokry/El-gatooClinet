@@ -1,4 +1,3 @@
-
 package MyGUI;
 
 import java.awt.Color;
@@ -8,13 +7,15 @@ import java.util.stream.Collectors;
 
 public class ChatMessagePanel extends javax.swing.JPanel {
 
-    private final Color fontColor;
+    private static GUIColors colors = null;
+    private static Color fontColor = null;
     private int messageHeight;
 
-    public ChatMessagePanel(String text, Color bgColor, Color fColor) {
+    public ChatMessagePanel(GUIColors colors, String text, boolean thisUser) {
+        ChatMessagePanel.colors = colors;
         initComponents();
-        fontColor = fColor;
-        setBackground(bgColor);
+        setBackground(thisUser ? ChatMessagePanel.colors.getUserMessageColor() : ChatMessagePanel.colors.getOtherUserMessageColor());
+        fontColor = thisUser ? ChatMessagePanel.colors.getUserMessageFontColor() : ChatMessagePanel.colors.getOtherUserMessageFontColor();
         textShrinker(text);
     }
 
@@ -59,7 +60,7 @@ public class ChatMessagePanel extends javax.swing.JPanel {
     }
 
     public int getMessageHeight() {
-        return messageHeight;
+        return this.getHeight();
     }
 
 }
