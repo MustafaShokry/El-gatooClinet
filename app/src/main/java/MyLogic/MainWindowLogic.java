@@ -1,6 +1,7 @@
 package MyLogic;
 
 import MyGUI.ChatMessagePanel;
+import MyGUI.GUIColors;
 import MyGUI.MainChattingWindow;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
@@ -11,17 +12,19 @@ public class MainWindowLogic {
     private MainChattingWindow mainWindowGUI = null;
     private static MainWindowLogic mainWindowLogic = null;
     private static MainLogic mainLogic = null;
+    GUIColors colors = null;
     
-    private MainWindowLogic(MainChattingWindow mw, MainLogic ml) {
+    private MainWindowLogic(MainChattingWindow mw, MainLogic ml, GUIColors cls) {
         mainLogic = ml;
         mainWindowGUI = mw;
+        colors = cls;
     }
 
-    public static MainWindowLogic getMainWindowLogic(MainChattingWindow mw, MainLogic ml) {
+    public static MainWindowLogic getMainWindowLogic(MainChattingWindow mw, MainLogic ml, GUIColors cls) {
         if (mainWindowLogic == null) {
             synchronized (MainWindowLogic.class) {
                 if (mainWindowLogic == null) {
-                    mainWindowLogic = new MainWindowLogic(mw, ml);
+                    mainWindowLogic = new MainWindowLogic(mw, ml, cls);
                 }
             }
         }
