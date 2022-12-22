@@ -51,25 +51,28 @@ public class SignInUpLogic {
         String phone = signInUPWindow.getSIPhoneNumberField().getText();
         String pass = signInUPWindow.getSIPasswordField().getText();
 
-//        Object response = MagicFunction(phone, pass);
-//        
-//        if (response instanceof User) {
-//            mainLogic.SignUserIn(User.getid());
-//            end();
-//        } else if (response instanceof Integer) {
-//            switch (response) {
-//                case val:
-//                    signInUPWindow.showError(signInUPWindow.getSIPhoneELabel1(), "Wrong Phone Number");
-//                    break;
-//                case val:
-//                    signInUPWindow.showError(signInUPWindow.getSIPasswordELabel(), "Wrong Password");
-//                    break;
-//                default:
-//                    throw new AssertionError();
-//            }
-//        } else {
-//            signInUPWindow.showError(signInUPWindow.getSIPhoneELabel1(), "Database Error");
-//        }
+        Object response = MagicFunction(phone, pass);
+        
+        if (response instanceof User) {
+            mainLogic.SignUserIn(User.getid());
+            end();
+        } else if (response instanceof Integer) {
+            if(response = -1)
+            switch ((int)response) {
+                case -2:
+                    signInUPWindow.showError(signInUPWindow.getSIPhoneELabel1(), "Wrong Data");
+                    break;
+                    case -1:
+                    signInUPWindow.showError(signInUPWindow.getSIPhoneELabel1(), "Account already online");
+                    break;
+                
+                    break;
+                default:
+                    throw new AssertionError();
+            }
+        } else {
+            signInUPWindow.showError(signInUPWindow.getSIPhoneELabel1(), "Database Error");
+        }
     }
 
     public void signUphandler() {
@@ -81,12 +84,42 @@ public class SignInUpLogic {
         String cPass= signInUPWindow.getSUConfirmPasswordField2().getText();
         String fName = signInUPWindow.getSUFirstNameField().getText();
         String lName = signInUPWindow.getSULastNameField().getText();
+        String name = fName + " " + lName;
         
-        signInUPWindow.showError(signInUPWindow.getSUPhoneNumberELabel(), "Invalid Phone number");
-        signInUPWindow.showError(signInUPWindow.getSUConfirmPhoneNumberELabel(), "Phone numbers do not match");
-        signInUPWindow.showError(signInUPWindow.getSUConfirmPasswordELabel(), "Passwords do not match");
-        signInUPWindow.showError(signInUPWindow.getSIPasswordELabel(), "Wrong Password");
-        signInUPWindow.showError(signInUPWindow.getSIPasswordELabel(), "Wrong Password");
+        if(!isValid(phone)){
+            signInUPWindow.showError(signInUPWindow.getSUPhoneNumberELabel(), "Invalid Phone number");
+        }
+        if(!phone.equals(cPhone)){
+            signInUPWindow.showError(signInUPWindow.getSUConfirmPhoneNumberELabel(), "Phone numbers do not match");
+        }
+        if(!pass.equals(cPass)){
+            signInUPWindow.showError(signInUPWindow.getSUConfirmPasswordELabel(), "Passwords do not match");
+        }
+        if(pass.length() <= 8){
+            signInUPWindow.showError(signInUPWindow.getSUPasswordELabel(), "Weak Password");
+        }
+        
+        
+        Object respone = magicFunction(name, phone, pass); 
+        
+        if (response instanceof User) {
+            mainLogic.SignUserIn(User.getid());
+            end();
+        } else if (response instanceof Integer) {
+       
+            switch ((int)response) {
+                case -1:
+                    signInUPWindow.showError(signInUPWindow.getSUPhoneNumberELabel(), "Phone already registered");
+                    break;
+                    case -2:
+                    signInUPWindow.showError(signInUPWindow.getSUPasswordELabel(), "Weak password alreay used");
+                    break;
+                default:
+                    throw new AssertionError();
+            }
+        } else {
+            signInUPWindow.showError(signInUPWindow.getSUPhoneNumberELabel(), "Database Error");
+        }
         
     }
     public boolean isValid(String s){

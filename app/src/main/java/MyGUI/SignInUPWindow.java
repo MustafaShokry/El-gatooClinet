@@ -317,7 +317,7 @@ public class SignInUPWindow extends javax.swing.JFrame {
         SUSignUpBtn.setMaximumSize(new java.awt.Dimension(300, 35));
         SUSignUpBtn.setMinimumSize(new java.awt.Dimension(300, 35));
         SUSignUpBtn.setPreferredSize(new java.awt.Dimension(300, 35));
-        SignUpPanel.add(SUSignUpBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 595, -1, -1));
+        SignUpPanel.add(SUSignUpBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 595, -1, -1));
 
         SUSignInBtn.setBackground(colors.getSmallTouchesColor());
         SUSignInBtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -327,7 +327,7 @@ public class SignInUPWindow extends javax.swing.JFrame {
         SUSignInBtn.setMaximumSize(new java.awt.Dimension(300, 35));
         SUSignInBtn.setMinimumSize(new java.awt.Dimension(300, 35));
         SUSignInBtn.setPreferredSize(new java.awt.Dimension(300, 35));
-        SignUpPanel.add(SUSignInBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 645, -1, -1));
+        SignUpPanel.add(SUSignInBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 645, -1, -1));
 
         SUConfirmPasswordELabel.setBackground(colors.getMainColor());
         SUConfirmPasswordELabel.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
