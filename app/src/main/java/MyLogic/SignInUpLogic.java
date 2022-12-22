@@ -1,5 +1,8 @@
 package MyLogic;
 
+import BackEnd.SignIn;
+import BackEnd.SignUp;
+import BackEnd.User;
 import MyGUI.GUIColors;
 import MyGUI.SignInUPWindow;
 import java.awt.event.MouseAdapter;
@@ -47,27 +50,22 @@ public class SignInUpLogic {
 
     public void signInHandler() {
         signInUPWindow.removeAllErrors();
-        
+
         String phone = signInUPWindow.getSIPhoneNumberField().getText();
         String pass = signInUPWindow.getSIPasswordField().getText();
 
-        Object response = MagicFunction(phone, pass);
-        
-        if (response instanceof User) {
-            mainLogic.SignUserIn(User.getid());
+        Object response = SignIn.createUser(phone, pass);
+
+        if (response instanceof User user) {
+            mainLogic.SignUserIn(user.getId());
             end();
         } else if (response instanceof Integer) {
-            if(response = -1)
-            switch ((int)response) {
-                case -2:
+            switch ((int) response) {
+                case -2 ->
                     signInUPWindow.showError(signInUPWindow.getSIPhoneELabel1(), "Wrong Data");
-                    break;
-                    case -1:
+                case -1 ->
                     signInUPWindow.showError(signInUPWindow.getSIPhoneELabel1(), "Account already online");
-                    break;
-                
-                    break;
-                default:
+                default ->
                     throw new AssertionError();
             }
         } else {
@@ -77,52 +75,50 @@ public class SignInUpLogic {
 
     public void signUphandler() {
         signInUPWindow.removeAllErrors();
-        
+
         String phone = signInUPWindow.getSUPhoneNumberField().getText();
         String cPhone = signInUPWindow.getSUConfirmPhoneNumberField().getText();
         String pass = signInUPWindow.getSUPasswordField().getText();
-        String cPass= signInUPWindow.getSUConfirmPasswordField2().getText();
+        String cPass = signInUPWindow.getSUConfirmPasswordField2().getText();
         String fName = signInUPWindow.getSUFirstNameField().getText();
         String lName = signInUPWindow.getSULastNameField().getText();
         String name = fName + " " + lName;
-        
-        if(!isValid(phone)){
+
+        if (!isValid(phone)) {
             signInUPWindow.showError(signInUPWindow.getSUPhoneNumberELabel(), "Invalid Phone number");
         }
-        if(!phone.equals(cPhone)){
+        if (!phone.equals(cPhone)) {
             signInUPWindow.showError(signInUPWindow.getSUConfirmPhoneNumberELabel(), "Phone numbers do not match");
         }
-        if(!pass.equals(cPass)){
+        if (!pass.equals(cPass)) {
             signInUPWindow.showError(signInUPWindow.getSUConfirmPasswordELabel(), "Passwords do not match");
         }
-        if(pass.length() <= 8){
+        if (pass.length() <= 8) {
             signInUPWindow.showError(signInUPWindow.getSUPasswordELabel(), "Weak Password");
         }
-        
-        
-        Object respone = magicFunction(name, phone, pass); 
-        
-        if (response instanceof User) {
-            mainLogic.SignUserIn(User.getid());
+
+        Object response = SignUp.createUser(name, phone, pass);
+
+        if (response instanceof User user) {
+            mainLogic.SignUserIn(user.getId());
             end();
         } else if (response instanceof Integer) {
-       
-            switch ((int)response) {
-                case -1:
+
+            switch ((int) response) {
+                case -1 ->
                     signInUPWindow.showError(signInUPWindow.getSUPhoneNumberELabel(), "Phone already registered");
-                    break;
-                    case -2:
+                case -2 ->
                     signInUPWindow.showError(signInUPWindow.getSUPasswordELabel(), "Weak password alreay used");
-                    break;
-                default:
+                default ->
                     throw new AssertionError();
             }
         } else {
             signInUPWindow.showError(signInUPWindow.getSUPhoneNumberELabel(), "Database Error");
         }
-        
+
     }
-    public boolean isValid(String s){
+
+    public boolean isValid(String s) {
         Pattern p = Pattern.compile("^\\d{11}$");
         Matcher m = p.matcher(s);
         return (m.matches());
