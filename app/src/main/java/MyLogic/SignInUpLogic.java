@@ -29,7 +29,7 @@ public class SignInUpLogic {
     }
     
     public void setup(){
-        signInUPWindow = signInUPWindow.getsignInUPWindow(colors);
+        signInUPWindow = signInUPWindow.getSignInUPWindow(colors);
         
 //        signInUPWindow.getButton().addMouseListener(new MouseAdapter() {
 //            @Override

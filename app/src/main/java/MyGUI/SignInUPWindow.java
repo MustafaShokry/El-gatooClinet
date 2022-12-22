@@ -1,17 +1,16 @@
 package MyGUI;
 
-
 public class SignInUPWindow extends javax.swing.JFrame {
-    
+
     GUIColors colors = null;
     private static SignInUPWindow signInUPWindow = null;
-    
-     private SignInUPWindow(GUIColors cls) {
-         colors = cls;
+
+    private SignInUPWindow(GUIColors cls) {
+        colors = cls;
         initComponents();
     }
 
-    public static SignInUPWindow getsignInUPWindow(GUIColors cls) {
+    public static SignInUPWindow getSignInUPWindow(GUIColors cls) {
         if (signInUPWindow == null) {
             synchronized (SignInUPWindow.class) {
                 if (signInUPWindow == null) {
@@ -21,6 +20,7 @@ public class SignInUPWindow extends javax.swing.JFrame {
         }
         return signInUPWindow;
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -264,8 +264,173 @@ public class SignInUPWindow extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-   
-    
+    /**
+     * @return the SILogoLabel
+     */
+    public javax.swing.JLabel getSILogoLabel() {
+        return SILogoLabel;
+    }
+
+    /**
+     * @return the SIPasswordField
+     */
+    public javax.swing.JPasswordField getSIPasswordField() {
+        return SIPasswordField;
+    }
+
+    /**
+     * @return the SIPasswordLabel
+     */
+    public javax.swing.JLabel getSIPasswordLabel() {
+        return SIPasswordLabel;
+    }
+
+    /**
+     * @return the SIPhoneNumberField
+     */
+    public javax.swing.JTextField getSIPhoneNumberField() {
+        return SIPhoneNumberField;
+    }
+
+    /**
+     * @return the SIPhoneNumberLabel
+     */
+    public javax.swing.JLabel getSIPhoneNumberLabel() {
+        return SIPhoneNumberLabel;
+    }
+
+    /**
+     * @return the SISignInBtn
+     */
+    public javax.swing.JButton getSISignInBtn() {
+        return SISignInBtn;
+    }
+
+    /**
+     * @return the SISignUpBtn
+     */
+    public javax.swing.JButton getSISignUpBtn() {
+        return SISignUpBtn;
+    }
+
+    /**
+     * @return the SUConfirmPasswordField2
+     */
+    public javax.swing.JPasswordField getSUConfirmPasswordField2() {
+        return SUConfirmPasswordField2;
+    }
+
+    /**
+     * @return the SUConfirmPasswordLabel
+     */
+    public javax.swing.JLabel getSUConfirmPasswordLabel() {
+        return SUConfirmPasswordLabel;
+    }
+
+    /**
+     * @return the SUConfirmPhoneNumberField
+     */
+    public javax.swing.JTextField getSUConfirmPhoneNumberField() {
+        return SUConfirmPhoneNumberField;
+    }
+
+    /**
+     * @return the SUConfirmPhoneNumberLabel
+     */
+    public javax.swing.JLabel getSUConfirmPhoneNumberLabel() {
+        return SUConfirmPhoneNumberLabel;
+    }
+
+    /**
+     * @return the SUFirstNameField
+     */
+    public javax.swing.JTextField getSUFirstNameField() {
+        return SUFirstNameField;
+    }
+
+    /**
+     * @return the SUFirstNameLabel
+     */
+    public javax.swing.JLabel getSUFirstNameLabel() {
+        return SUFirstNameLabel;
+    }
+
+    /**
+     * @return the SULastNameField
+     */
+    public javax.swing.JTextField getSULastNameField() {
+        return SULastNameField;
+    }
+
+    /**
+     * @return the SULastNameLabel
+     */
+    public javax.swing.JLabel getSULastNameLabel() {
+        return SULastNameLabel;
+    }
+
+    /**
+     * @return the SULogoLabel
+     */
+    public javax.swing.JLabel getSULogoLabel() {
+        return SULogoLabel;
+    }
+
+    /**
+     * @return the SUPasswordField
+     */
+    public javax.swing.JPasswordField getSUPasswordField() {
+        return SUPasswordField;
+    }
+
+    /**
+     * @return the SUPasswordLabel
+     */
+    public javax.swing.JLabel getSUPasswordLabel() {
+        return SUPasswordLabel;
+    }
+
+    /**
+     * @return the SUPhoneNumberField
+     */
+    public javax.swing.JTextField getSUPhoneNumberField() {
+        return SUPhoneNumberField;
+    }
+
+    /**
+     * @return the SUPhoneNumberLabel
+     */
+    public javax.swing.JLabel getSUPhoneNumberLabel() {
+        return SUPhoneNumberLabel;
+    }
+
+    /**
+     * @return the SUSignInBtn
+     */
+    public javax.swing.JButton getSUSignInBtn() {
+        return SUSignInBtn;
+    }
+
+    /**
+     * @return the SUSignUpBtn
+     */
+    public javax.swing.JButton getSUSignUpBtn() {
+        return SUSignUpBtn;
+    }
+
+    /**
+     * @return the SignInPanel
+     */
+    public javax.swing.JPanel getSignInPanel() {
+        return SignInPanel;
+    }
+
+    /**
+     * @return the SignUpPanel
+     */
+    public javax.swing.JPanel getSignUpPanel() {
+        return SignUpPanel;
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
