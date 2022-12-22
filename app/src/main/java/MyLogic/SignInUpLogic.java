@@ -31,13 +31,12 @@ public class SignInUpLogic {
     public void setup(){
         signInUPWindow = signInUPWindow.getsignInUPWindow(colors);
         
-        signInUPWindow.getButton().addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                signIn(0);
-            }
-
-        });
+//        signInUPWindow.getButton().addMouseListener(new MouseAdapter() {
+//            @Override
+//            public void mouseClicked(MouseEvent e) {
+//                signIn(0);
+//            }
+//        });
     }
     public void start(){
         setup();

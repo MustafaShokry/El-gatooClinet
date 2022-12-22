@@ -8,7 +8,9 @@ public class GUIColors {
     private boolean mode = true;
     private Color mainColor;
     private Color secondaryColor;
+    private Color smallTouchesColor;
     private Color mainFontColor;
+    private Color buttonsFontColor;
     private Color userMessageColor;
     private Color userMessageFontColor;
     private Color otherUserMessageColor;
@@ -33,15 +35,15 @@ public class GUIColors {
     private void setUpColors(){
         mainColor = mode ? new java.awt.Color(31, 32, 41) : new java.awt.Color(252,252,253);
         secondaryColor = mode ? new java.awt.Color(23,24,31) : new java.awt.Color(252, 252, 253);
+        setSmallTouchesColor(mode ? new java.awt.Color(0xffde59) : new java.awt.Color(0xffde59));
         mainFontColor = mode ? new java.awt.Color(0xF6F6F7) : new java.awt.Color(0x000000);
+        setButtonsFontColor(mode ? new java.awt.Color(0x000000): new java.awt.Color(0x000000));
         userMessageColor = mode ? new java.awt.Color(0xBBA0CA): new java.awt.Color(0xBBA0CA);
         userMessageFontColor = mode ? new java.awt.Color(0x000000): new java.awt.Color(0x000000);
         otherUserMessageColor = mode ? new java.awt.Color(0x89B6A5): new java.awt.Color(0x89B6A5);
         otherUserMessageFontColor = mode ? new java.awt.Color(0x000000): new java.awt.Color(0x000000);
     }
-    /**
-     * @return the mode
-     */
+    
     public boolean getMode() {
         return mode;
     }
@@ -64,10 +66,38 @@ public class GUIColors {
     }
 
     /**
+     * @return the smallTouchesColor
+     */
+    public Color getSmallTouchesColor() {
+        return smallTouchesColor;
+    }
+
+    /**
+     * @param smallTouchesColor the smallTouchesColor to set
+     */
+    public void setSmallTouchesColor(Color smallTouchesColor) {
+        this.smallTouchesColor = smallTouchesColor;
+    }
+
+    /**
      * @return the mainFontColor
      */
     public Color getMainFontColor() {
         return mainFontColor;
+    }
+
+    /**
+     * @return the buttonsFontColor
+     */
+    public Color getButtonsFontColor() {
+        return buttonsFontColor;
+    }
+
+    /**
+     * @param buttonsFontColor the buttonsFontColor to set
+     */
+    public void setButtonsFontColor(Color buttonsFontColor) {
+        this.buttonsFontColor = buttonsFontColor;
     }
 
     /**

@@ -37,7 +37,6 @@ public class MainWindowLogic {
         mainWindowGUI.getChatMessagesPanel().setLayout(new net.miginfocom.swing.MigLayout("fillx"));
         mainWindowGUI.getChatsPanel().setLayout(new net.miginfocom.swing.MigLayout("fillx"));
     }
-
     public void start() {
         mainWindowGUI.setVisible(true);
     }
