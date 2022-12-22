@@ -22,7 +22,7 @@ public class App {
             @Override
             public void run() {
                 MainLogic mainLogic = MainLogic.getMainLogic();
-                mainLogic.TBR();
+                mainLogic.startApp();
             }
         });
     }
