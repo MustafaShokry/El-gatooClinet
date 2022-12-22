@@ -26,14 +26,14 @@ public class MainLogic {
         return mainLogic;
     }
 
-    public void changeMode() {
-        colors.changeMode();
+    public void startApp() {
         try {
             UIManager.setLookAndFeel(colors.getMode() ? new com.formdev.flatlaf.FlatDarkLaf() : new com.formdev.flatlaf.FlatLightLaf());
         } catch (Exception ex) {
             System.err.println("Failed to initialize LaF");
         }
-        mainWindow.updateUIColors();
+        signInUpLogic = SignInUpLogic.getSignInUpLogic(colors, mainLogic);
+        signInUpLogic.start();
     }
 
     public void SignUserIn(int id) {
@@ -49,14 +49,14 @@ public class MainLogic {
         mainWindowLogic.start();
     }
 
-    public void startApp() {
+    public void changeMode() {
+        colors.changeMode();
         try {
             UIManager.setLookAndFeel(colors.getMode() ? new com.formdev.flatlaf.FlatDarkLaf() : new com.formdev.flatlaf.FlatLightLaf());
         } catch (Exception ex) {
             System.err.println("Failed to initialize LaF");
         }
-        signInUpLogic = SignInUpLogic.getSignInUpLogic(colors, mainLogic);
-        signInUpLogic.start();
+        mainWindow.updateUIColors();
     }
 
 }
