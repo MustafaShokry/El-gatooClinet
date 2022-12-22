@@ -338,9 +338,9 @@ public class SignInUPWindow extends javax.swing.JFrame {
     }
     public void showError(javax.swing.JLabel errorlbl, String text){
         errorlbl.setText(text);
+        errorlbl.setVisible(true);
     }
     public void removeError(javax.swing.JLabel errorlbl){
-        errorlbl.setVisible(false);
         errorlbl.setVisible(false);
     }
     public void removeAllErrors(){
