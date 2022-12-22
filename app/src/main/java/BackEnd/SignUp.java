@@ -34,6 +34,7 @@ public class SignUp extends Logging {
             return user;
         }catch (Exception e){
             // if creation failed, return null
+            System.out.println(e);
             return null;
         }
     }

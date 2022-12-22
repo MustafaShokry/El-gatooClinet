@@ -47,6 +47,7 @@ public class SignIn extends Logging {
         }catch (Exception e){
             // if creating failed, return null
             //System.out.println("Third condition");
+            System.out.println(e);
             return null;
         }
         // if no such user, return null

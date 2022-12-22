@@ -141,7 +141,7 @@ public class SignInUpLogic {
         signInUPWindow.getSISignInBtn().addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                signInHandler();
+               signInHandler();
             }
         });
         signInUPWindow.getSUSignUpBtn().addMouseListener(new MouseAdapter() {
