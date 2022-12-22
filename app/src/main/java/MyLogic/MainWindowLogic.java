@@ -65,7 +65,7 @@ public class MainWindowLogic {
                 renderContact("Mostafa Mohammed");
                 renderMessage("Hellow", true);
                 renderMessage("hi there", false);
-                //mainLogic.changeMode();
+                mainLogic.changeMode();
             }
 
         });
