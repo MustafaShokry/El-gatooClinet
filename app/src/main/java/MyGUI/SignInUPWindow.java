@@ -1,5 +1,7 @@
 package MyGUI;
 
+import java.awt.CardLayout;
+
 public class SignInUPWindow extends javax.swing.JFrame {
 
     GUIColors colors = null;
@@ -25,13 +27,26 @@ public class SignInUPWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        SignInPanel = new javax.swing.JPanel();
+        SILogoLabel = new javax.swing.JLabel();
+        SIPhoneNumberLabel = new javax.swing.JLabel();
+        SIPhoneNumberField = new javax.swing.JTextField();
+        SIPhoneELabel1 = new javax.swing.JLabel();
+        SIPasswordLabel = new javax.swing.JLabel();
+        SIPasswordField = new javax.swing.JPasswordField();
+        SISignInBtn = new javax.swing.JButton();
+        SISignUpBtn = new javax.swing.JButton();
+        SIPasswordELabel = new javax.swing.JLabel();
         SignUpPanel = new javax.swing.JPanel();
         SULogoLabel = new javax.swing.JLabel();
         SUPhoneNumberLabel = new javax.swing.JLabel();
         SUPhoneNumberField = new javax.swing.JTextField();
+        SUPhoneNumberELabel = new javax.swing.JLabel();
         SUConfirmPhoneNumberLabel = new javax.swing.JLabel();
         SUConfirmPhoneNumberField = new javax.swing.JTextField();
+        SUConfirmPhoneNumberELabel = new javax.swing.JLabel();
         SUPasswordLabel = new javax.swing.JLabel();
+        SUPasswordELabel = new javax.swing.JLabel();
         SUPasswordField = new javax.swing.JPasswordField();
         SUConfirmPasswordLabel = new javax.swing.JLabel();
         SUConfirmPasswordField2 = new javax.swing.JPasswordField();
@@ -41,14 +56,100 @@ public class SignInUPWindow extends javax.swing.JFrame {
         SULastNameField = new javax.swing.JTextField();
         SUSignUpBtn = new javax.swing.JButton();
         SUSignInBtn = new javax.swing.JButton();
-        SignInPanel = new javax.swing.JPanel();
-        SILogoLabel = new javax.swing.JLabel();
-        SIPhoneNumberLabel = new javax.swing.JLabel();
-        SIPhoneNumberField = new javax.swing.JTextField();
-        SIPasswordLabel = new javax.swing.JLabel();
-        SIPasswordField = new javax.swing.JPasswordField();
-        SISignInBtn = new javax.swing.JButton();
-        SISignUpBtn = new javax.swing.JButton();
+        SUConfirmPasswordELabel = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(970, 732));
+        setMinimumSize(new java.awt.Dimension(970, 732));
+        setPreferredSize(new java.awt.Dimension(970, 732));
+        getContentPane().setLayout(new java.awt.CardLayout());
+
+        SignInPanel.setBackground(colors.getMainColor());
+        SignInPanel.setMaximumSize(new java.awt.Dimension(970, 732));
+        SignInPanel.setMinimumSize(new java.awt.Dimension(970, 732));
+        SignInPanel.setPreferredSize(new java.awt.Dimension(970, 732));
+        SignInPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        SILogoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/SILogo.png"))); // NOI18N
+        SignInPanel.add(SILogoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 0, -1, -1));
+
+        SIPhoneNumberLabel.setBackground(colors.getMainColor());
+        SIPhoneNumberLabel.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        SIPhoneNumberLabel.setForeground(colors.getMainFontColor());
+        SIPhoneNumberLabel.setText("Phone number");
+        SIPhoneNumberLabel.setMaximumSize(new java.awt.Dimension(300, 30));
+        SIPhoneNumberLabel.setMinimumSize(new java.awt.Dimension(300, 30));
+        SIPhoneNumberLabel.setPreferredSize(new java.awt.Dimension(300, 30));
+        SignInPanel.add(SIPhoneNumberLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 300, -1, -1));
+
+        SIPhoneNumberField.setBackground(colors.getMainColor());
+        SIPhoneNumberField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        SIPhoneNumberField.setForeground(colors.getMainFontColor());
+        SIPhoneNumberField.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, colors.getSmallTouchesColor()));
+        SIPhoneNumberField.setMaximumSize(new java.awt.Dimension(300, 40));
+        SIPhoneNumberField.setMinimumSize(new java.awt.Dimension(300, 40));
+        SIPhoneNumberField.setPreferredSize(new java.awt.Dimension(300, 40));
+        SignInPanel.add(SIPhoneNumberField, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 330, -1, -1));
+
+        SIPhoneELabel1.setBackground(colors.getMainColor());
+        SIPhoneELabel1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        SIPhoneELabel1.setForeground(new java.awt.Color(255, 0, 0));
+        SIPhoneELabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/wrong2.png"))); // NOI18N
+        SIPhoneELabel1.setText("Error");
+        SIPhoneELabel1.setMaximumSize(new java.awt.Dimension(300, 30));
+        SIPhoneELabel1.setMinimumSize(new java.awt.Dimension(300, 30));
+        SIPhoneELabel1.setPreferredSize(new java.awt.Dimension(300, 30));
+        SignInPanel.add(SIPhoneELabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 370, -1, -1));
+
+        SIPasswordLabel.setBackground(colors.getMainColor());
+        SIPasswordLabel.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        SIPasswordLabel.setForeground(colors.getMainFontColor());
+        SIPasswordLabel.setText("Password");
+        SIPasswordLabel.setMaximumSize(new java.awt.Dimension(300, 30));
+        SIPasswordLabel.setMinimumSize(new java.awt.Dimension(300, 30));
+        SIPasswordLabel.setPreferredSize(new java.awt.Dimension(300, 30));
+        SignInPanel.add(SIPasswordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 400, -1, -1));
+
+        SIPasswordField.setBackground(colors.getMainColor());
+        SIPasswordField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        SIPasswordField.setForeground(colors.getMainFontColor());
+        SIPasswordField.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, colors.getSmallTouchesColor()));
+        SIPasswordField.setMaximumSize(new java.awt.Dimension(300, 40));
+        SIPasswordField.setMinimumSize(new java.awt.Dimension(300, 40));
+        SIPasswordField.setPreferredSize(new java.awt.Dimension(300, 40));
+        SignInPanel.add(SIPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 430, -1, -1));
+
+        SISignInBtn.setBackground(colors.getSmallTouchesColor());
+        SISignInBtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        SISignInBtn.setForeground(colors.getButtonsFontColor());
+        SISignInBtn.setText("Sign in");
+        SISignInBtn.setBorder(new com.formdev.flatlaf.ui.FlatButtonBorder());
+        SISignInBtn.setMaximumSize(new java.awt.Dimension(125, 35));
+        SISignInBtn.setMinimumSize(new java.awt.Dimension(125, 35));
+        SISignInBtn.setPreferredSize(new java.awt.Dimension(125, 35));
+        SignInPanel.add(SISignInBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 530, -1, -1));
+
+        SISignUpBtn.setBackground(colors.getSmallTouchesColor());
+        SISignUpBtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        SISignUpBtn.setForeground(colors.getButtonsFontColor());
+        SISignUpBtn.setText("Sign up");
+        SISignUpBtn.setBorder(new com.formdev.flatlaf.ui.FlatButtonBorder());
+        SISignUpBtn.setMaximumSize(new java.awt.Dimension(125, 35));
+        SISignUpBtn.setMinimumSize(new java.awt.Dimension(125, 35));
+        SISignUpBtn.setPreferredSize(new java.awt.Dimension(125, 35));
+        SignInPanel.add(SISignUpBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 530, -1, -1));
+
+        SIPasswordELabel.setBackground(colors.getMainColor());
+        SIPasswordELabel.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        SIPasswordELabel.setForeground(new java.awt.Color(255, 0, 0));
+        SIPasswordELabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/wrong2.png"))); // NOI18N
+        SIPasswordELabel.setText("Error");
+        SIPasswordELabel.setMaximumSize(new java.awt.Dimension(300, 30));
+        SIPasswordELabel.setMinimumSize(new java.awt.Dimension(300, 30));
+        SIPasswordELabel.setPreferredSize(new java.awt.Dimension(300, 30));
+        SignInPanel.add(SIPasswordELabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 470, -1, -1));
+
+        getContentPane().add(SignInPanel, "card2");
 
         SignUpPanel.setBackground(colors.getMainColor());
         SignUpPanel.setMaximumSize(new java.awt.Dimension(970, 732));
@@ -77,6 +178,16 @@ public class SignInUPWindow extends javax.swing.JFrame {
         SUPhoneNumberField.setPreferredSize(new java.awt.Dimension(300, 40));
         SignUpPanel.add(SUPhoneNumberField, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, -1, -1));
 
+        SUPhoneNumberELabel.setBackground(colors.getMainColor());
+        SUPhoneNumberELabel.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        SUPhoneNumberELabel.setForeground(new java.awt.Color(255, 0, 0));
+        SUPhoneNumberELabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/wrong2.png"))); // NOI18N
+        SUPhoneNumberELabel.setText("Error");
+        SUPhoneNumberELabel.setMaximumSize(new java.awt.Dimension(300, 30));
+        SUPhoneNumberELabel.setMinimumSize(new java.awt.Dimension(300, 30));
+        SUPhoneNumberELabel.setPreferredSize(new java.awt.Dimension(300, 30));
+        SignUpPanel.add(SUPhoneNumberELabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(155, 370, -1, -1));
+
         SUConfirmPhoneNumberLabel.setBackground(colors.getMainColor());
         SUConfirmPhoneNumberLabel.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         SUConfirmPhoneNumberLabel.setForeground(colors.getMainFontColor());
@@ -95,6 +206,16 @@ public class SignInUPWindow extends javax.swing.JFrame {
         SUConfirmPhoneNumberField.setPreferredSize(new java.awt.Dimension(300, 40));
         SignUpPanel.add(SUConfirmPhoneNumberField, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 330, -1, -1));
 
+        SUConfirmPhoneNumberELabel.setBackground(colors.getMainColor());
+        SUConfirmPhoneNumberELabel.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        SUConfirmPhoneNumberELabel.setForeground(new java.awt.Color(255, 0, 0));
+        SUConfirmPhoneNumberELabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/wrong2.png"))); // NOI18N
+        SUConfirmPhoneNumberELabel.setText("Error");
+        SUConfirmPhoneNumberELabel.setMaximumSize(new java.awt.Dimension(300, 30));
+        SUConfirmPhoneNumberELabel.setMinimumSize(new java.awt.Dimension(300, 30));
+        SUConfirmPhoneNumberELabel.setPreferredSize(new java.awt.Dimension(300, 30));
+        SignUpPanel.add(SUConfirmPhoneNumberELabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(505, 370, -1, -1));
+
         SUPasswordLabel.setBackground(colors.getMainColor());
         SUPasswordLabel.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         SUPasswordLabel.setForeground(colors.getMainFontColor());
@@ -103,6 +224,16 @@ public class SignInUPWindow extends javax.swing.JFrame {
         SUPasswordLabel.setMinimumSize(new java.awt.Dimension(300, 30));
         SUPasswordLabel.setPreferredSize(new java.awt.Dimension(300, 30));
         SignUpPanel.add(SUPasswordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 400, -1, -1));
+
+        SUPasswordELabel.setBackground(colors.getMainColor());
+        SUPasswordELabel.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        SUPasswordELabel.setForeground(new java.awt.Color(255, 0, 0));
+        SUPasswordELabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/wrong2.png"))); // NOI18N
+        SUPasswordELabel.setText("Error");
+        SUPasswordELabel.setMaximumSize(new java.awt.Dimension(300, 30));
+        SUPasswordELabel.setMinimumSize(new java.awt.Dimension(300, 30));
+        SUPasswordELabel.setPreferredSize(new java.awt.Dimension(300, 30));
+        SignUpPanel.add(SUPasswordELabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(155, 470, -1, -1));
 
         SUPasswordField.setBackground(colors.getMainColor());
         SUPasswordField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -175,7 +306,7 @@ public class SignInUPWindow extends javax.swing.JFrame {
         SUSignUpBtn.setMaximumSize(new java.awt.Dimension(300, 35));
         SUSignUpBtn.setMinimumSize(new java.awt.Dimension(300, 35));
         SUSignUpBtn.setPreferredSize(new java.awt.Dimension(300, 35));
-        SignUpPanel.add(SUSignUpBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 610, -1, -1));
+        SignUpPanel.add(SUSignUpBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 595, -1, -1));
 
         SUSignInBtn.setBackground(colors.getSmallTouchesColor());
         SUSignInBtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -185,90 +316,53 @@ public class SignInUPWindow extends javax.swing.JFrame {
         SUSignInBtn.setMaximumSize(new java.awt.Dimension(300, 35));
         SUSignInBtn.setMinimumSize(new java.awt.Dimension(300, 35));
         SUSignInBtn.setPreferredSize(new java.awt.Dimension(300, 35));
-        SignUpPanel.add(SUSignInBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 675, -1, -1));
+        SignUpPanel.add(SUSignInBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 645, -1, -1));
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(970, 732));
-        setMinimumSize(new java.awt.Dimension(970, 732));
-        setPreferredSize(new java.awt.Dimension(970, 732));
-        getContentPane().setLayout(new java.awt.GridBagLayout());
+        SUConfirmPasswordELabel.setBackground(colors.getMainColor());
+        SUConfirmPasswordELabel.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        SUConfirmPasswordELabel.setForeground(new java.awt.Color(255, 0, 0));
+        SUConfirmPasswordELabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/wrong2.png"))); // NOI18N
+        SUConfirmPasswordELabel.setText("Error");
+        SUConfirmPasswordELabel.setMaximumSize(new java.awt.Dimension(300, 30));
+        SUConfirmPasswordELabel.setMinimumSize(new java.awt.Dimension(300, 30));
+        SUConfirmPasswordELabel.setPreferredSize(new java.awt.Dimension(300, 30));
+        SignUpPanel.add(SUConfirmPasswordELabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(505, 470, -1, -1));
 
-        SignInPanel.setBackground(colors.getMainColor());
-        SignInPanel.setMaximumSize(new java.awt.Dimension(970, 732));
-        SignInPanel.setMinimumSize(new java.awt.Dimension(970, 732));
-        SignInPanel.setPreferredSize(new java.awt.Dimension(970, 732));
-        SignInPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        SILogoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/SILogo.png"))); // NOI18N
-        SignInPanel.add(SILogoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 0, -1, -1));
-
-        SIPhoneNumberLabel.setBackground(colors.getMainColor());
-        SIPhoneNumberLabel.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        SIPhoneNumberLabel.setForeground(colors.getMainFontColor());
-        SIPhoneNumberLabel.setText("Phone number");
-        SIPhoneNumberLabel.setMaximumSize(new java.awt.Dimension(300, 30));
-        SIPhoneNumberLabel.setMinimumSize(new java.awt.Dimension(300, 30));
-        SIPhoneNumberLabel.setPreferredSize(new java.awt.Dimension(300, 30));
-        SignInPanel.add(SIPhoneNumberLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 300, -1, -1));
-
-        SIPhoneNumberField.setBackground(colors.getMainColor());
-        SIPhoneNumberField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        SIPhoneNumberField.setForeground(colors.getMainFontColor());
-        SIPhoneNumberField.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, colors.getSmallTouchesColor()));
-        SIPhoneNumberField.setMaximumSize(new java.awt.Dimension(300, 40));
-        SIPhoneNumberField.setMinimumSize(new java.awt.Dimension(300, 40));
-        SIPhoneNumberField.setPreferredSize(new java.awt.Dimension(300, 40));
-        SignInPanel.add(SIPhoneNumberField, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 330, -1, -1));
-
-        SIPasswordLabel.setBackground(colors.getMainColor());
-        SIPasswordLabel.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        SIPasswordLabel.setForeground(colors.getMainFontColor());
-        SIPasswordLabel.setText("Password");
-        SIPasswordLabel.setMaximumSize(new java.awt.Dimension(300, 30));
-        SIPasswordLabel.setMinimumSize(new java.awt.Dimension(300, 30));
-        SIPasswordLabel.setPreferredSize(new java.awt.Dimension(300, 30));
-        SignInPanel.add(SIPasswordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 400, -1, -1));
-
-        SIPasswordField.setBackground(colors.getMainColor());
-        SIPasswordField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        SIPasswordField.setForeground(colors.getMainFontColor());
-        SIPasswordField.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, colors.getSmallTouchesColor()));
-        SIPasswordField.setMaximumSize(new java.awt.Dimension(300, 40));
-        SIPasswordField.setMinimumSize(new java.awt.Dimension(300, 40));
-        SIPasswordField.setPreferredSize(new java.awt.Dimension(300, 40));
-        SignInPanel.add(SIPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 430, -1, -1));
-
-        SISignInBtn.setBackground(colors.getSmallTouchesColor());
-        SISignInBtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        SISignInBtn.setForeground(colors.getButtonsFontColor());
-        SISignInBtn.setText("Sign in");
-        SISignInBtn.setBorder(new com.formdev.flatlaf.ui.FlatButtonBorder());
-        SISignInBtn.setMaximumSize(new java.awt.Dimension(125, 35));
-        SISignInBtn.setMinimumSize(new java.awt.Dimension(125, 35));
-        SISignInBtn.setPreferredSize(new java.awt.Dimension(125, 35));
-        SignInPanel.add(SISignInBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 530, -1, -1));
-
-        SISignUpBtn.setBackground(colors.getSmallTouchesColor());
-        SISignUpBtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        SISignUpBtn.setForeground(colors.getButtonsFontColor());
-        SISignUpBtn.setText("Sign up");
-        SISignUpBtn.setBorder(new com.formdev.flatlaf.ui.FlatButtonBorder());
-        SISignUpBtn.setMaximumSize(new java.awt.Dimension(125, 35));
-        SISignUpBtn.setMinimumSize(new java.awt.Dimension(125, 35));
-        SISignUpBtn.setPreferredSize(new java.awt.Dimension(125, 35));
-        SignInPanel.add(SISignUpBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 530, -1, -1));
-
-        getContentPane().add(SignInPanel, new java.awt.GridBagConstraints());
+        getContentPane().add(SignUpPanel, "card3");
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    public void toggleSISU() {
+        ((CardLayout) this.getContentPane().getLayout()).next(this.getContentPane());
+    }
+    public void showError(javax.swing.JLabel errorlbl, String text){
+        errorlbl.setText(text);
+    }
+    public void removeError(javax.swing.JLabel errorlbl){
+        errorlbl.setVisible(false);
+    }
+    public void removeAllErrors(){
+        removeError(SIPhoneELabel1);
+        removeError(SIPasswordELabel);
+        removeError(SUPhoneNumberELabel);
+        removeError(SUConfirmPhoneNumberELabel);
+        removeError(SUPasswordELabel);
+        removeError(SUConfirmPasswordELabel);
+    }
     /**
      * @return the SILogoLabel
      */
     public javax.swing.JLabel getSILogoLabel() {
         return SILogoLabel;
+    }
+
+    /**
+     * @return the SIPasswordELabel
+     */
+    public javax.swing.JLabel getSIPasswordELabel() {
+        return SIPasswordELabel;
     }
 
     /**
@@ -283,6 +377,13 @@ public class SignInUPWindow extends javax.swing.JFrame {
      */
     public javax.swing.JLabel getSIPasswordLabel() {
         return SIPasswordLabel;
+    }
+
+    /**
+     * @return the SIPhoneELabel1
+     */
+    public javax.swing.JLabel getSIPhoneELabel1() {
+        return SIPhoneELabel1;
     }
 
     /**
@@ -314,6 +415,13 @@ public class SignInUPWindow extends javax.swing.JFrame {
     }
 
     /**
+     * @return the SUConfirmPasswordELabel
+     */
+    public javax.swing.JLabel getSUConfirmPasswordELabel() {
+        return SUConfirmPasswordELabel;
+    }
+
+    /**
      * @return the SUConfirmPasswordField2
      */
     public javax.swing.JPasswordField getSUConfirmPasswordField2() {
@@ -325,6 +433,13 @@ public class SignInUPWindow extends javax.swing.JFrame {
      */
     public javax.swing.JLabel getSUConfirmPasswordLabel() {
         return SUConfirmPasswordLabel;
+    }
+
+    /**
+     * @return the SUConfirmPhoneNumberELabel
+     */
+    public javax.swing.JLabel getSUConfirmPhoneNumberELabel() {
+        return SUConfirmPhoneNumberELabel;
     }
 
     /**
@@ -377,6 +492,13 @@ public class SignInUPWindow extends javax.swing.JFrame {
     }
 
     /**
+     * @return the SUPasswordELabel
+     */
+    public javax.swing.JLabel getSUPasswordELabel() {
+        return SUPasswordELabel;
+    }
+
+    /**
      * @return the SUPasswordField
      */
     public javax.swing.JPasswordField getSUPasswordField() {
@@ -388,6 +510,13 @@ public class SignInUPWindow extends javax.swing.JFrame {
      */
     public javax.swing.JLabel getSUPasswordLabel() {
         return SUPasswordLabel;
+    }
+
+    /**
+     * @return the SUPhoneNumberELabel
+     */
+    public javax.swing.JLabel getSUPhoneNumberELabel() {
+        return SUPhoneNumberELabel;
     }
 
     /**
@@ -435,14 +564,18 @@ public class SignInUPWindow extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel SILogoLabel;
+    private javax.swing.JLabel SIPasswordELabel;
     private javax.swing.JPasswordField SIPasswordField;
     private javax.swing.JLabel SIPasswordLabel;
+    private javax.swing.JLabel SIPhoneELabel1;
     private javax.swing.JTextField SIPhoneNumberField;
     private javax.swing.JLabel SIPhoneNumberLabel;
     private javax.swing.JButton SISignInBtn;
     private javax.swing.JButton SISignUpBtn;
+    private javax.swing.JLabel SUConfirmPasswordELabel;
     private javax.swing.JPasswordField SUConfirmPasswordField2;
     private javax.swing.JLabel SUConfirmPasswordLabel;
+    private javax.swing.JLabel SUConfirmPhoneNumberELabel;
     private javax.swing.JTextField SUConfirmPhoneNumberField;
     private javax.swing.JLabel SUConfirmPhoneNumberLabel;
     private javax.swing.JTextField SUFirstNameField;
@@ -450,8 +583,10 @@ public class SignInUPWindow extends javax.swing.JFrame {
     private javax.swing.JTextField SULastNameField;
     private javax.swing.JLabel SULastNameLabel;
     private javax.swing.JLabel SULogoLabel;
+    private javax.swing.JLabel SUPasswordELabel;
     private javax.swing.JPasswordField SUPasswordField;
     private javax.swing.JLabel SUPasswordLabel;
+    private javax.swing.JLabel SUPhoneNumberELabel;
     private javax.swing.JTextField SUPhoneNumberField;
     private javax.swing.JLabel SUPhoneNumberLabel;
     private javax.swing.JButton SUSignInBtn;

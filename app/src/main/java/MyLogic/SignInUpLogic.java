@@ -11,7 +11,7 @@ public class SignInUpLogic {
     private static SignInUPWindow signInUPWindow = null;
     private static GUIColors colors = null;
     private static MainLogic mainLogic = null;
-    
+
     private SignInUpLogic(GUIColors cls, MainLogic ml) {
         colors = cls;
         mainLogic = ml;
@@ -27,28 +27,40 @@ public class SignInUpLogic {
         }
         return signInUpLogic;
     }
-    
-    public void setup(){
+
+    public void setup() {
         signInUPWindow = signInUPWindow.getSignInUPWindow(colors);
-        
-//        signInUPWindow.getButton().addMouseListener(new MouseAdapter() {
-//            @Override
-//            public void mouseClicked(MouseEvent e) {
-//                signIn(0);
-//            }
-//        });
+        addListeners();
+        signInUPWindow.removeAllErrors();
     }
-    public void start(){
+
+    public void start() {
         setup();
         signInUPWindow.setVisible(true);
-       
-        //signInUPWindow.getControlerPane().moveToFront(signInUPWindow.getSignUpPanel());
     }
-    public void end(){
+
+    public void end() {
         signInUPWindow.dispose();
     }
-    public void signIn(int id){
+
+    public void signIn(int id) {
         end();
         mainLogic.SignUserIn(id);
+    }
+
+    public void addListeners() {
+
+        signInUPWindow.getSISignUpBtn().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                signInUPWindow.toggleSISU();
+            }
+        });
+        signInUPWindow.getSUSignInBtn().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                signInUPWindow.toggleSISU();
+            }
+        });
     }
 }
