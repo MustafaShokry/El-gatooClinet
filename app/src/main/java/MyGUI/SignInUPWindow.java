@@ -37,6 +37,7 @@ public class SignInUPWindow extends javax.swing.JFrame {
         SISignInBtn = new javax.swing.JButton();
         SISignUpBtn = new javax.swing.JButton();
         SIPasswordELabel = new javax.swing.JLabel();
+        SIPasswordELabel1 = new javax.swing.JLabel();
         SignUpPanel = new javax.swing.JPanel();
         SULogoLabel = new javax.swing.JLabel();
         SUPhoneNumberLabel = new javax.swing.JLabel();
@@ -148,6 +149,16 @@ public class SignInUPWindow extends javax.swing.JFrame {
         SIPasswordELabel.setMinimumSize(new java.awt.Dimension(300, 30));
         SIPasswordELabel.setPreferredSize(new java.awt.Dimension(300, 30));
         SignInPanel.add(SIPasswordELabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 470, -1, -1));
+
+        SIPasswordELabel1.setBackground(colors.getMainColor());
+        SIPasswordELabel1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        SIPasswordELabel1.setForeground(new java.awt.Color(255, 0, 0));
+        SIPasswordELabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/wrong2.png"))); // NOI18N
+        SIPasswordELabel1.setText("Error");
+        SIPasswordELabel1.setMaximumSize(new java.awt.Dimension(300, 30));
+        SIPasswordELabel1.setMinimumSize(new java.awt.Dimension(300, 30));
+        SIPasswordELabel1.setPreferredSize(new java.awt.Dimension(300, 30));
+        SignInPanel.add(SIPasswordELabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 470, -1, -1));
 
         getContentPane().add(SignInPanel, "card2");
 
@@ -565,6 +576,7 @@ public class SignInUPWindow extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel SILogoLabel;
     private javax.swing.JLabel SIPasswordELabel;
+    private javax.swing.JLabel SIPasswordELabel1;
     private javax.swing.JPasswordField SIPasswordField;
     private javax.swing.JLabel SIPasswordLabel;
     private javax.swing.JLabel SIPhoneELabel1;
