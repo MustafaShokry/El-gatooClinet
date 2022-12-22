@@ -54,6 +54,10 @@ public class SignInUpLogic {
         signInUPWindow.removeAllErrors();
 
         String phone = signInUPWindow.getSIPhoneNumberField().getText();
+        if(!isValid(phone)){
+            signInUPWindow.showError(signInUPWindow.getSIPhoneELabel1(), "Invalid Phone number");
+            return;
+        }
         String pass = signInUPWindow.getSIPasswordField().getText();
 
         Object response = SignIn.createUser(phone, pass);
@@ -78,7 +82,7 @@ public class SignInUpLogic {
     public void signUphandler() {
         signInUPWindow.removeAllErrors();
 
-        boolean errorFlag = false;
+        int errsCounter = 0;
         String phone = signInUPWindow.getSUPhoneNumberField().getText();
         String cPhone = signInUPWindow.getSUConfirmPhoneNumberField().getText();
         String pass = signInUPWindow.getSUPasswordField().getText();
@@ -89,21 +93,21 @@ public class SignInUpLogic {
 
         if (!isValid(phone)) {
             signInUPWindow.showError(signInUPWindow.getSUPhoneNumberELabel(), "Invalid Phone number");
-            errorFlag = !errorFlag;
+            errsCounter++;
         }
         if (!phone.equals(cPhone)) {
             signInUPWindow.showError(signInUPWindow.getSUConfirmPhoneNumberELabel(), "Phone numbers do not match");
-            errorFlag = !errorFlag;
+            errsCounter++;
         }
         if (pass.length() <= 8) {
-            signInUPWindow.showError(signInUPWindow.getSUPasswordELabel(), "Weak Password, atleast 9 characters long");
-            errorFlag = !errorFlag;
+            signInUPWindow.showError(signInUPWindow.getSUPasswordELabel(), "Weak Password, atleast 9 characters");
+            errsCounter++;
         }
         if (!pass.equals(cPass)) {
             signInUPWindow.showError(signInUPWindow.getSUConfirmPasswordELabel(), "Passwords do not match");
-            errorFlag = !errorFlag;
+            errsCounter++;
         }
-        if (errorFlag) {
+        if (errsCounter!=0) {
             return;
         }
 
@@ -152,7 +156,6 @@ public class SignInUpLogic {
             @Override
             public void mouseClicked(MouseEvent e) {
                 signInHandler();
-                //signInUPWindow.showError(signInUPWindow.getSIPhoneELabel1(), "Wrong Data");
             }
         });
         signInUPWindow.getSUSignUpBtn().addMouseListener(new MouseAdapter() {

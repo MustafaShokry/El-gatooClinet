@@ -157,7 +157,7 @@ public class SignInUPWindow extends javax.swing.JFrame {
         SignUpPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         SULogoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/SILogo.png"))); // NOI18N
-        SignUpPanel.add(SULogoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 0, -1, -1));
+        SignUpPanel.add(SULogoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 0, -1, 250));
 
         SUPhoneNumberLabel.setBackground(colors.getMainColor());
         SUPhoneNumberLabel.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N

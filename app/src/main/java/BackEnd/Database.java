@@ -143,6 +143,7 @@ public class Database implements IDatabaseInfo {
                 result.updateString(2,name);
                 result.updateString(3,phoneNumber);
                 result.updateString(4,contacts);
+                result.updateInt(5, 1);
                 result.updateString(6,password);
                 result.insertRow();
             }
