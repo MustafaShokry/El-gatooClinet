@@ -1,5 +1,6 @@
 package MyLogic;
 
+import BackEnd.User;
 import MyGUI.GUIColors;
 import MyGUI.MainChattingWindow;
 import javax.swing.UIManager;
@@ -36,19 +37,12 @@ public class MainLogic {
         signInUpLogic.start();
     }
 
-    public void SignUserIn(int id) {
-        //Getting the mainWindow object for the main window GUI and passing the color schema to it
-        mainWindow = MainChattingWindow.getMainWindow(colors);
-        //Passing the mainWindow GUI for logic handler for main chatting window
-        MainWindowLogic mainWindowLogic = MainWindowLogic.getMainWindowLogic(mainWindow, mainLogic, colors);
-        //Setting up the Logic and layouts for main chating window
-        mainWindowLogic.setup();
-
-        mainWindowLogic.testing();
-        //Showing the GUI
+    public void SignUserIn(User user) {
+        MainWindowLogic mainWindowLogic = MainWindowLogic.getMainWindowLogic(colors, mainLogic, user);
         mainWindowLogic.start();
     }
 
+    //Changing the mode still requires some modifications
     public void changeMode() {
         colors.changeMode();
         try {
@@ -56,7 +50,7 @@ public class MainLogic {
         } catch (Exception ex) {
             System.err.println("Failed to initialize LaF");
         }
-        mainWindow.updateUIColors();
+        //mainWindow.updateUIColors();
     }
 
 }

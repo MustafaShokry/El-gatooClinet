@@ -1,5 +1,6 @@
 package MyLogic;
 
+import BackEnd.User;
 import MyGUI.ChatContactPanel;
 import MyGUI.ChatMessagePanel;
 import MyGUI.GUIColors;
@@ -10,22 +11,23 @@ import java.awt.event.MouseEvent;
 
 public class MainWindowLogic {
 
-    private MainChattingWindow mainWindowGUI = null;
     private static MainWindowLogic mainWindowLogic = null;
+    private static MainChattingWindow mainWindowGUI = null;
+    private static GUIColors colors = null;
     private static MainLogic mainLogic = null;
-    GUIColors colors = null;
+    private static User user = null;
 
-    private MainWindowLogic(MainChattingWindow mw, MainLogic ml, GUIColors cls) {
-        mainLogic = ml;
-        mainWindowGUI = mw;
+    private MainWindowLogic(GUIColors cls, MainLogic ml, User usr) {
         colors = cls;
+        mainLogic = ml;
+        user = usr;
     }
 
-    public static MainWindowLogic getMainWindowLogic(MainChattingWindow mw, MainLogic ml, GUIColors cls) {
+    public static MainWindowLogic getMainWindowLogic(GUIColors cls, MainLogic ml, User usr) {
         if (mainWindowLogic == null) {
             synchronized (MainWindowLogic.class) {
                 if (mainWindowLogic == null) {
-                    mainWindowLogic = new MainWindowLogic(mw, ml, cls);
+                    mainWindowLogic = new MainWindowLogic(cls, ml, usr);
                 }
             }
         }
@@ -33,12 +35,18 @@ public class MainWindowLogic {
     }
 
     public void setup() {
+        //Getting the mainWindow object for the main window GUI and passing the color schema to it
+        mainWindowGUI = MainChattingWindow.getMainWindow(colors);
         //Setting up Layouts
         mainWindowGUI.getChatMessagesPanel().setLayout(new net.miginfocom.swing.MigLayout("fillx"));
         mainWindowGUI.getChatsPanel().setLayout(new net.miginfocom.swing.MigLayout("fillx"));
     }
+
     public void start() {
+        setup();
+        testing();
         mainWindowGUI.setVisible(true);
+        
     }
 
     public void renderContact(String name) {
@@ -50,7 +58,7 @@ public class MainWindowLogic {
 
     public void renderMessage(String text, boolean thisUser) {
         ChatMessagePanel cmp = new ChatMessagePanel(colors, text, thisUser);
-        mainWindowGUI.getChatMessagesPanel().add(cmp, thisUser ?  "wrap, al right" : "wrap, al left");
+        mainWindowGUI.getChatMessagesPanel().add(cmp, thisUser ? "wrap, al right" : "wrap, al left");
         mainWindowGUI.reSizeAfterMessage(cmp.getMessageHeight());
         mainWindowGUI.getChatMessagesPanel().repaint();
         mainWindowGUI.getChatMessagesPanel().revalidate();
@@ -72,9 +80,7 @@ public class MainWindowLogic {
 
 }
 
-
 //load contacts from db and put them in an array of contact objects
-
 interface IMessage {
 
     void renderMessage(javax.swing.JLabel chatPanel);

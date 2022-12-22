@@ -35,8 +35,10 @@ public class SignInUpLogic {
 
     public void setup() {
         signInUPWindow = SignInUPWindow.getSignInUPWindow(colors);
+
         addListeners();
         signInUPWindow.removeAllErrors();
+
     }
 
     public void start() {
@@ -56,8 +58,8 @@ public class SignInUpLogic {
 
         Object response = SignIn.createUser(phone, pass);
 
-        if (response instanceof User user) {
-            mainLogic.SignUserIn(user.getId());
+        if (response instanceof User) {
+            mainLogic.SignUserIn((User) response);
             end();
         } else if (response instanceof Integer) {
             switch ((int) response) {
@@ -99,8 +101,8 @@ public class SignInUpLogic {
 
         Object response = SignUp.createUser(name, phone, pass);
 
-        if (response instanceof User user) {
-            mainLogic.SignUserIn(user.getId());
+        if (response instanceof User) {
+            mainLogic.SignUserIn((User) response);
             end();
         } else if (response instanceof Integer) {
 
@@ -141,7 +143,8 @@ public class SignInUpLogic {
         signInUPWindow.getSISignInBtn().addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-               signInHandler();
+                signInHandler();
+                //signInUPWindow.showError(signInUPWindow.getSIPhoneELabel1(), "Wrong Data");
             }
         });
         signInUPWindow.getSUSignUpBtn().addMouseListener(new MouseAdapter() {
