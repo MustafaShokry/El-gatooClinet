@@ -9,6 +9,7 @@ public class MainLogic {
     private static MainLogic mainLogic = null;
     private static GUIColors colors = null;
     private static MainChattingWindow mainWindow = null;
+    private static SignInUpLogic signInUpLogic = null;
 
     private MainLogic() {
         colors = GUIColors.getColors(true);
@@ -27,15 +28,15 @@ public class MainLogic {
 
     public void changeMode() {
         colors.changeMode();
-        mainWindow.updateUIColors();
-    }
-
-    public void TBR() {
         try {
             UIManager.setLookAndFeel(colors.getMode() ? new com.formdev.flatlaf.FlatDarkLaf() : new com.formdev.flatlaf.FlatLightLaf());
         } catch (Exception ex) {
             System.err.println("Failed to initialize LaF");
         }
+        mainWindow.updateUIColors();
+    }
+
+    public void SignUserIn(int id) {
         //Getting the mainWindow object for the main window GUI and passing the color schema to it
         mainWindow = MainChattingWindow.getMainWindow(colors);
         //Passing the mainWindow GUI for logic handler for main chatting window
@@ -46,6 +47,16 @@ public class MainLogic {
         mainWindowLogic.testing();
         //Showing the GUI
         mainWindowLogic.start();
+    }
+
+    public void startApp() {
+        try {
+            UIManager.setLookAndFeel(colors.getMode() ? new com.formdev.flatlaf.FlatDarkLaf() : new com.formdev.flatlaf.FlatLightLaf());
+        } catch (Exception ex) {
+            System.err.println("Failed to initialize LaF");
+        }
+        signInUpLogic = SignInUpLogic.getSignInUpLogic(colors, mainLogic);
+        signInUpLogic.start();
     }
 
 }
