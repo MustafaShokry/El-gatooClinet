@@ -18,10 +18,10 @@ public class SignUp extends Logging {
         try {
             // looping over the table, if the phone is registered before return null as an indication for failure
             while (result.next()){
-                if (result.getString(3)==phoneNumber){
+                if (result.getString(3).equals(phoneNumber)){
                     return -1;
                 }
-                if (result.getString(6)==password){
+                if (result.getString(6).equals(password)){
                     return -2;
                 }
             }

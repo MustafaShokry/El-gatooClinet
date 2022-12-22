@@ -78,6 +78,7 @@ public class SignInUpLogic {
     public void signUphandler() {
         signInUPWindow.removeAllErrors();
 
+        boolean errorFlag = false;
         String phone = signInUPWindow.getSUPhoneNumberField().getText();
         String cPhone = signInUPWindow.getSUConfirmPhoneNumberField().getText();
         String pass = signInUPWindow.getSUPasswordField().getText();
@@ -88,15 +89,22 @@ public class SignInUpLogic {
 
         if (!isValid(phone)) {
             signInUPWindow.showError(signInUPWindow.getSUPhoneNumberELabel(), "Invalid Phone number");
+            errorFlag = !errorFlag;
         }
         if (!phone.equals(cPhone)) {
             signInUPWindow.showError(signInUPWindow.getSUConfirmPhoneNumberELabel(), "Phone numbers do not match");
+            errorFlag = !errorFlag;
+        }
+        if (pass.length() <= 8) {
+            signInUPWindow.showError(signInUPWindow.getSUPasswordELabel(), "Weak Password, atleast 9 characters long");
+            errorFlag = !errorFlag;
         }
         if (!pass.equals(cPass)) {
             signInUPWindow.showError(signInUPWindow.getSUConfirmPasswordELabel(), "Passwords do not match");
+            errorFlag = !errorFlag;
         }
-        if (pass.length() <= 8) {
-            signInUPWindow.showError(signInUPWindow.getSUPasswordELabel(), "Weak Password");
+        if (errorFlag) {
+            return;
         }
 
         Object response = SignUp.createUser(name, phone, pass);
@@ -110,7 +118,7 @@ public class SignInUpLogic {
                 case -1 ->
                     signInUPWindow.showError(signInUPWindow.getSUPhoneNumberELabel(), "Phone already registered");
                 case -2 ->
-                    signInUPWindow.showError(signInUPWindow.getSUPasswordELabel(), "Weak password alreay used");
+                    signInUPWindow.showError(signInUPWindow.getSUPasswordELabel(), "Weak password, alreay used");
                 default ->
                     throw new AssertionError();
             }
