@@ -175,8 +175,9 @@ public class Database implements IDatabaseInfo {
         Vector<MessageIndentifier> messages = new Vector<MessageIndentifier>();
             try {
                 while (result.next()){
-                    int fromId = result.getInt(1);
-                    boolean sent = (fromId==id)?true:false;
+                    int fromId = result.getInt(2);
+                    boolean sent = (fromId==id);
+                    System.out.println("The from id, the POV id"+fromId + " " + id + sent       );
                     String message = result.getString(5);
                     Timestamp time = result.getTimestamp(4);
                     messages.add(new MessageIndentifier(message,sent,time));

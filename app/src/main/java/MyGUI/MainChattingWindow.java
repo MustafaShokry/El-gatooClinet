@@ -4,18 +4,20 @@ public class MainChattingWindow extends javax.swing.JFrame {
 
     private static MainChattingWindow mainWindow = null;
     private static GUIColors colors = null;
+    private static String name;
 
-    private MainChattingWindow(GUIColors colors) {
+    private MainChattingWindow(GUIColors colors, String nm) {
         this.colors = colors;
+        this.name = nm;
         initComponents();
         setResizable(false);
     }
 
-    public static MainChattingWindow getMainWindow(GUIColors colors) {
+    public static MainChattingWindow getMainWindow(GUIColors colors,  String nm) {
         if (mainWindow == null) {
             synchronized (MainChattingWindow.class) {
                 if (mainWindow == null) {
-                    mainWindow = new MainChattingWindow(colors);
+                    mainWindow = new MainChattingWindow(colors, nm);
                 }
             }
         }
@@ -38,9 +40,7 @@ public class MainChattingWindow extends javax.swing.JFrame {
         addContactIconPanel = new javax.swing.JPanel();
         addContactIconLabel = new javax.swing.JLabel();
         searchPanel = new javax.swing.JPanel();
-        searchContainerPanel = new javax.swing.JPanel();
-        searchTextField = new javax.swing.JFormattedTextField();
-        searchIconLabel = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         chatsPanel = new javax.swing.JPanel();
         chatHeaderPanel = new javax.swing.JPanel();
         otherUserDeafultIconPanel = new javax.swing.JPanel();
@@ -128,31 +128,13 @@ public class MainChattingWindow extends javax.swing.JFrame {
         searchPanel.setMaximumSize(new java.awt.Dimension(310, 80));
         searchPanel.setMinimumSize(new java.awt.Dimension(310, 80));
         searchPanel.setPreferredSize(new java.awt.Dimension(310, 80));
-        searchPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        searchPanel.setLayout(new java.awt.GridBagLayout());
 
-        searchContainerPanel.setBackground(colors.getSecondaryColor());
-        searchContainerPanel.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(39, 40, 49)));
-        searchContainerPanel.setMaximumSize(new java.awt.Dimension(310, 40));
-        searchContainerPanel.setMinimumSize(new java.awt.Dimension(310, 40));
-        searchContainerPanel.setPreferredSize(new java.awt.Dimension(290, 40));
-        searchContainerPanel.setLayout(new java.awt.GridBagLayout());
-
-        searchTextField.setBackground(colors.getSecondaryColor());
-        searchTextField.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 0, new java.awt.Color(39, 40, 49)), javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1)));
-        searchTextField.setForeground(new java.awt.Color(246, 246, 247));
-        searchTextField.setText("Search in the contacts");
-        searchTextField.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        searchTextField.setHighlighter(null);
-        searchTextField.setMaximumSize(new java.awt.Dimension(250, 40));
-        searchTextField.setMinimumSize(new java.awt.Dimension(250, 40));
-        searchTextField.setPreferredSize(new java.awt.Dimension(250, 40));
-        searchContainerPanel.add(searchTextField, new java.awt.GridBagConstraints());
-
-        searchIconLabel.setBackground(colors.getSecondaryColor());
-        searchIconLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/search.png"))); // NOI18N
-        searchContainerPanel.add(searchIconLabel, new java.awt.GridBagConstraints());
-
-        searchPanel.add(searchContainerPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jLabel1.setForeground(colors.getMainFontColor());
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Welcome, " + name);
+        searchPanel.add(jLabel1, new java.awt.GridBagConstraints());
 
         MainWindowPanel.add(searchPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, -1, -1));
 
@@ -337,6 +319,7 @@ public class MainChattingWindow extends javax.swing.JFrame {
     private javax.swing.JPanel chatsPanel;
     private javax.swing.JLabel chattingIconLabel;
     private javax.swing.JPanel chattingIconPanel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel mainLogoLabel;
     private javax.swing.JLabel otherUserDeafultIconLabel;
@@ -345,10 +328,7 @@ public class MainChattingWindow extends javax.swing.JFrame {
     private javax.swing.JPanel otherUserInfoIconPanel;
     private javax.swing.JLabel otherUserNameLabel;
     private javax.swing.JLabel otherUserStateLabel;
-    private javax.swing.JPanel searchContainerPanel;
-    private javax.swing.JLabel searchIconLabel;
     private javax.swing.JPanel searchPanel;
-    private javax.swing.JFormattedTextField searchTextField;
     private javax.swing.JLabel settingsIconLabel;
     private javax.swing.JPanel settingsIconPanel;
     private javax.swing.JPanel sideBarPanel;
@@ -371,8 +351,6 @@ public class MainChattingWindow extends javax.swing.JFrame {
         chatSendPanel.setBackground(colors.getMainColor());
         chatSendTextField.setBackground(colors.getMainColor());
         chatMessagesPanel.setBackground(colors.getSecondaryColor());
-        searchContainerPanel.setBackground(colors.getSecondaryColor());
-        searchTextField.setBackground(colors.getSecondaryColor());
     }
     public void reSizeAfterMessage(int height){
         if(chatMessagesPanel.getHeight() > 530){
@@ -512,19 +490,7 @@ public class MainChattingWindow extends javax.swing.JFrame {
         return otherUserStateLabel;
     }
 
-    /**
-     * @return the searchContainerPanel
-     */
-    public javax.swing.JPanel getSearchContainerPanel() {
-        return searchContainerPanel;
-    }
 
-    /**
-     * @return the searchIconLabel
-     */
-    public javax.swing.JLabel getSearchIconLabel() {
-        return searchIconLabel;
-    }
 
     /**
      * @return the searchPanel
@@ -533,12 +499,7 @@ public class MainChattingWindow extends javax.swing.JFrame {
         return searchPanel;
     }
 
-    /**
-     * @return the searchTextField
-     */
-    public javax.swing.JFormattedTextField getSearchTextField() {
-        return searchTextField;
-    }
+    
 
     /**
      * @return the settingsIconLabel

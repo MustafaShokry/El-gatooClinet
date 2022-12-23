@@ -45,7 +45,7 @@ public class MainWindowLogic {
 
     public void setup() {
         //Getting the mainWindow object for the main window GUI and passing the color schema to it
-        mainWindowGUI = MainChattingWindow.getMainWindow(colors);
+        mainWindowGUI = MainChattingWindow.getMainWindow(colors, user.getName());
         //Setting up Layouts
         mainWindowGUI.getChatMessagesPanel().setLayout(new net.miginfocom.swing.MigLayout("fillx"));
         mainWindowGUI.getChatsPanel().setLayout(new net.miginfocom.swing.MigLayout("fillx"));
@@ -95,6 +95,10 @@ public class MainWindowLogic {
 
     public void loadMessages(int contactId) {
         Vector<MessageIndentifier> vms = Database.loadContact(user.getId(), contactId);
+        for (Integer i = 0; i < vms.size(); i++) {
+            System.out.print(vms.get(i).getMessage() + " " + vms.get(i).getTime()+ " "+ vms.get(i).isSent());
+            System.out.println(" ");
+        }
     }
 
     public void testing() {

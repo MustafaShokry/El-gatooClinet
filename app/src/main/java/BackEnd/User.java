@@ -93,9 +93,6 @@ public class User {
             Database.startConnection(false);
             Database.setResult("SELECT * FROM `private chat`");
             Database.sendMessages(this.id,contactId,Database.idGenerator(),LocalDateTime.now(),msg);
-            String[] arr = contacts.split("-");
-            for (String cont: arr) Database.loadContact(this.id,Integer.parseInt(cont));
-            //Database.endConnection();
         }else {
             System.out.println("Not sent");
         }
