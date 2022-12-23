@@ -187,4 +187,16 @@ public class Database implements IDatabaseInfo {
                 return null;
             }
     }
+    public static int getContactState(int contactId){
+        setResult("SELECT * FROM `users`");
+            try {
+                result.beforeFirst();
+                while (result.next()){
+                    if (result.getInt(1)==contactId){return result.getInt(5);}
+                }
+            } catch (SQLException e) {
+                return -2;
+            }
+            return -1;
+    }
 }

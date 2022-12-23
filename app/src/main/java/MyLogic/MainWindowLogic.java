@@ -134,6 +134,7 @@ public class MainWindowLogic {
                 mainWindowGUI.getChatMessagesPanel().setSize(600, 535);
                 activeContactId = ccp.getContactId();
                 mainWindowGUI.getOtherUserNameLabel().setText(ccp.getContactName());
+                mainWindowGUI.getOtherUserStateLabel().setText(Database.getContactState(activeContactId) == 1 ? "Online" : "Offline");
                 loadMessages(ccp.getContactId());
             }
 
