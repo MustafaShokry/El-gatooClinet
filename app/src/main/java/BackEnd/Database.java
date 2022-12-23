@@ -199,4 +199,16 @@ public class Database implements IDatabaseInfo {
             }
             return -1;
     }
+     public static int getContactId(String phone){
+        setResult("SELECT * FROM `users`");
+            try {
+                result.beforeFirst();
+                while (result.next()){
+                    if (result.getString(3).equals(phone)){return result.getInt(1);}
+                }
+            } catch (SQLException e) {
+                return -2;
+            }
+            return -1;
+    }
 }

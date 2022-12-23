@@ -31,6 +31,18 @@ public class MainChattingWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        AddContactDialog = new javax.swing.JDialog();
+        jPanel1 = new javax.swing.JPanel();
+        AddContactBtn = new javax.swing.JButton();
+        SUPhoneNumberLabel = new javax.swing.JLabel();
+        AddContactFied = new javax.swing.JTextField();
+        AddContactELabel = new javax.swing.JLabel();
+        ChangePasswordDialog = new javax.swing.JDialog();
+        jPanel2 = new javax.swing.JPanel();
+        SUSignUpBtn1 = new javax.swing.JButton();
+        SUPhoneNumberLabel1 = new javax.swing.JLabel();
+        SUPhoneNumberField1 = new javax.swing.JTextField();
+        SUPhoneNumberELabel1 = new javax.swing.JLabel();
         MainWindowPanel = new javax.swing.JPanel();
         sideBarPanel = new javax.swing.JPanel();
         mainLogoLabel = new javax.swing.JLabel();
@@ -58,6 +70,114 @@ public class MainChattingWindow extends javax.swing.JFrame {
         chatSendPanel = new javax.swing.JPanel();
         chatSendTextField = new javax.swing.JFormattedTextField();
         chatSendIconLabel = new javax.swing.JLabel();
+
+        AddContactDialog.setAlwaysOnTop(true);
+        AddContactDialog.setBackground(colors.getMainColor());
+        AddContactDialog.setLocation(new java.awt.Point(200, 300));
+        AddContactDialog.setMaximumSize(new java.awt.Dimension(400, 220));
+        AddContactDialog.setMinimumSize(new java.awt.Dimension(400, 220));
+        AddContactDialog.setPreferredSize(new java.awt.Dimension(400, 220));
+        AddContactDialog.setResizable(false);
+        AddContactDialog.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(colors.getMainColor());
+        jPanel1.setMaximumSize(new java.awt.Dimension(400, 220));
+        jPanel1.setMinimumSize(new java.awt.Dimension(400, 220));
+        jPanel1.setPreferredSize(new java.awt.Dimension(400, 220));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        AddContactBtn.setBackground(colors.getSmallTouchesColor());
+        AddContactBtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        AddContactBtn.setForeground(colors.getButtonsFontColor());
+        AddContactBtn.setText("Add contact");
+        AddContactBtn.setBorder(new com.formdev.flatlaf.ui.FlatButtonBorder());
+        AddContactBtn.setMaximumSize(new java.awt.Dimension(300, 35));
+        AddContactBtn.setMinimumSize(new java.awt.Dimension(300, 35));
+        AddContactBtn.setPreferredSize(new java.awt.Dimension(300, 35));
+        jPanel1.add(AddContactBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
+
+        SUPhoneNumberLabel.setBackground(colors.getMainColor());
+        SUPhoneNumberLabel.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        SUPhoneNumberLabel.setForeground(colors.getMainFontColor());
+        SUPhoneNumberLabel.setText("Enter contact's phone number");
+        SUPhoneNumberLabel.setMaximumSize(new java.awt.Dimension(300, 30));
+        SUPhoneNumberLabel.setMinimumSize(new java.awt.Dimension(300, 30));
+        SUPhoneNumberLabel.setPreferredSize(new java.awt.Dimension(300, 30));
+        jPanel1.add(SUPhoneNumberLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
+
+        AddContactFied.setBackground(colors.getMainColor());
+        AddContactFied.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        AddContactFied.setForeground(colors.getMainFontColor());
+        AddContactFied.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, colors.getSmallTouchesColor()));
+        AddContactFied.setMaximumSize(new java.awt.Dimension(300, 40));
+        AddContactFied.setMinimumSize(new java.awt.Dimension(300, 40));
+        AddContactFied.setPreferredSize(new java.awt.Dimension(300, 40));
+        jPanel1.add(AddContactFied, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
+
+        AddContactELabel.setBackground(colors.getMainColor());
+        AddContactELabel.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        AddContactELabel.setForeground(new java.awt.Color(255, 0, 0));
+        AddContactELabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/wrong2.png"))); // NOI18N
+        AddContactELabel.setText("Error");
+        AddContactELabel.setMaximumSize(new java.awt.Dimension(300, 30));
+        AddContactELabel.setMinimumSize(new java.awt.Dimension(300, 30));
+        AddContactELabel.setPreferredSize(new java.awt.Dimension(300, 30));
+        jPanel1.add(AddContactELabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 90, -1, -1));
+
+        AddContactDialog.getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        ChangePasswordDialog.setAlwaysOnTop(true);
+        ChangePasswordDialog.setBackground(colors.getMainColor());
+        ChangePasswordDialog.setLocation(new java.awt.Point(200, 300));
+        ChangePasswordDialog.setMaximumSize(new java.awt.Dimension(400, 220));
+        ChangePasswordDialog.setResizable(false);
+        ChangePasswordDialog.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel2.setBackground(colors.getMainColor());
+        jPanel2.setMaximumSize(new java.awt.Dimension(400, 220));
+        jPanel2.setMinimumSize(new java.awt.Dimension(400, 220));
+        jPanel2.setPreferredSize(new java.awt.Dimension(400, 220));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        SUSignUpBtn1.setBackground(colors.getSmallTouchesColor());
+        SUSignUpBtn1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        SUSignUpBtn1.setForeground(colors.getButtonsFontColor());
+        SUSignUpBtn1.setText("Add contact");
+        SUSignUpBtn1.setBorder(new com.formdev.flatlaf.ui.FlatButtonBorder());
+        SUSignUpBtn1.setMaximumSize(new java.awt.Dimension(300, 35));
+        SUSignUpBtn1.setMinimumSize(new java.awt.Dimension(300, 35));
+        SUSignUpBtn1.setPreferredSize(new java.awt.Dimension(300, 35));
+        jPanel2.add(SUSignUpBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
+
+        SUPhoneNumberLabel1.setBackground(colors.getMainColor());
+        SUPhoneNumberLabel1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        SUPhoneNumberLabel1.setForeground(colors.getMainFontColor());
+        SUPhoneNumberLabel1.setText("Enter contact's phone number");
+        SUPhoneNumberLabel1.setMaximumSize(new java.awt.Dimension(300, 30));
+        SUPhoneNumberLabel1.setMinimumSize(new java.awt.Dimension(300, 30));
+        SUPhoneNumberLabel1.setPreferredSize(new java.awt.Dimension(300, 30));
+        jPanel2.add(SUPhoneNumberLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
+
+        SUPhoneNumberField1.setBackground(colors.getMainColor());
+        SUPhoneNumberField1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        SUPhoneNumberField1.setForeground(colors.getMainFontColor());
+        SUPhoneNumberField1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, colors.getSmallTouchesColor()));
+        SUPhoneNumberField1.setMaximumSize(new java.awt.Dimension(300, 40));
+        SUPhoneNumberField1.setMinimumSize(new java.awt.Dimension(300, 40));
+        SUPhoneNumberField1.setPreferredSize(new java.awt.Dimension(300, 40));
+        jPanel2.add(SUPhoneNumberField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
+
+        SUPhoneNumberELabel1.setBackground(colors.getMainColor());
+        SUPhoneNumberELabel1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        SUPhoneNumberELabel1.setForeground(new java.awt.Color(255, 0, 0));
+        SUPhoneNumberELabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/wrong2.png"))); // NOI18N
+        SUPhoneNumberELabel1.setText("Error");
+        SUPhoneNumberELabel1.setMaximumSize(new java.awt.Dimension(300, 30));
+        SUPhoneNumberELabel1.setMinimumSize(new java.awt.Dimension(300, 30));
+        SUPhoneNumberELabel1.setPreferredSize(new java.awt.Dimension(300, 30));
+        jPanel2.add(SUPhoneNumberELabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 90, -1, -1));
+
+        ChangePasswordDialog.getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(985, 732));
@@ -310,7 +430,17 @@ public class MainChattingWindow extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AddContactBtn;
+    private javax.swing.JDialog AddContactDialog;
+    private javax.swing.JLabel AddContactELabel;
+    private javax.swing.JTextField AddContactFied;
+    private javax.swing.JDialog ChangePasswordDialog;
     private javax.swing.JPanel MainWindowPanel;
+    private javax.swing.JLabel SUPhoneNumberELabel1;
+    private javax.swing.JTextField SUPhoneNumberField1;
+    private javax.swing.JLabel SUPhoneNumberLabel;
+    private javax.swing.JLabel SUPhoneNumberLabel1;
+    private javax.swing.JButton SUSignUpBtn1;
     private javax.swing.JLabel addContactIconLabel;
     private javax.swing.JPanel addContactIconPanel;
     private javax.swing.JPanel chatHeaderPanel;
@@ -323,6 +453,8 @@ public class MainChattingWindow extends javax.swing.JFrame {
     private javax.swing.JLabel chattingIconLabel;
     private javax.swing.JPanel chattingIconPanel;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel mainLogoLabel;
     private javax.swing.JLabel otherUserDeafultIconLabel;
@@ -359,6 +491,17 @@ public class MainChattingWindow extends javax.swing.JFrame {
         if(chatMessagesPanel.getHeight() > 530){
             chatMessagesPanel.setPreferredSize(new java.awt.Dimension(600, chatMessagesPanel.getHeight() + height));
         }
+    }
+    
+    public void showError(javax.swing.JLabel errorlbl, String text){
+        errorlbl.setText(text);
+        errorlbl.setVisible(true);
+    }
+    public void removeError(javax.swing.JLabel errorlbl){
+        errorlbl.setVisible(false);
+    }
+    public void showDialog(){
+        getAddContactDialog().show();
     }
     /**
      * @return the MainWindowPanel
@@ -537,5 +680,40 @@ public class MainChattingWindow extends javax.swing.JFrame {
      */
     public javax.swing.JPanel getUserProfileIconPanel() {
         return userProfileIconPanel;
+    }
+
+    /**
+     * @return the AddContactBtn
+     */
+    public javax.swing.JButton getAddContactBtn() {
+        return AddContactBtn;
+    }
+
+    /**
+     * @return the AddContactDialog
+     */
+    public javax.swing.JDialog getAddContactDialog() {
+        return AddContactDialog;
+    }
+
+    /**
+     * @return the AddContactELabel
+     */
+    public javax.swing.JLabel getAddContactELabel() {
+        return AddContactELabel;
+    }
+
+    /**
+     * @return the AddContactFied
+     */
+    public javax.swing.JTextField getAddContactFied() {
+        return AddContactFied;
+    }
+
+    /**
+     * @return the ChangePasswordDialog
+     */
+    public javax.swing.JDialog getChangePasswordDialog() {
+        return ChangePasswordDialog;
     }
 }

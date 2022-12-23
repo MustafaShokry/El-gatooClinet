@@ -7,7 +7,6 @@ import MyGUI.ChatContactPanel;
 import MyGUI.ChatMessagePanel;
 import MyGUI.GUIColors;
 import MyGUI.MainChattingWindow;
-import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.HashMap;
@@ -70,6 +69,7 @@ public class MainWindowLogic {
     }
 
     public void loadContacts() {
+        mainWindowGUI.getChatsPanel().removeAll();
         if (user.getContacts().length() == 0) {
 
             return;
@@ -105,7 +105,8 @@ public class MainWindowLogic {
     }
 
     public void addLiseners() {
-
+        
+        //sendinig messages
         mainWindowGUI.getChatSendIconLabel().addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -115,7 +116,8 @@ public class MainWindowLogic {
                 mainWindowGUI.getChatSendTextField().setText("");
             }
         });
-
+        
+        //on Closnig the window change the staste in the database
         mainWindowGUI.addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
             public void windowClosing(java.awt.event.WindowEvent windowEvent) {
@@ -124,6 +126,35 @@ public class MainWindowLogic {
                 Database.insertAndUpdateUsers(user.getId(), null, null, null, null, 0);
             }
         });
+        
+        //Adding contact
+        mainWindowGUI.getAddContactIconLabel().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                mainWindowGUI.removeError(mainWindowGUI.getAddContactELabel());
+                mainWindowGUI.getAddContactDialog().show();
+            }
+        });
+        mainWindowGUI.getAddContactBtn().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+               String contactPhone = mainWindowGUI.getAddContactFied().getText();
+               if(!Validator.getValidator().isPhoneValid(contactPhone)){
+                   mainWindowGUI.showError(mainWindowGUI.getAddContactELabel(), "Invalid Phone number");
+                   return;
+               }
+               int contactID = Database.getContactId(contactPhone);
+               if( contactID == -1){
+                   mainWindowGUI.showError(mainWindowGUI.getAddContactELabel(), "Phone number doesn't exist");
+                   return;
+               }
+               user.addContacts(Integer.toString(contactID));
+               loadContacts();
+               mainWindowGUI.getAddContactFied().setText("");
+               mainWindowGUI.getAddContactDialog().dispose();
+            }
+        });
+
     }
 
     public void addListenerToContact(ChatContactPanel ccp) {
