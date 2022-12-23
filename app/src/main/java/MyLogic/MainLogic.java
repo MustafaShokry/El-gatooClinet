@@ -33,11 +33,11 @@ public class MainLogic {
         } catch (Exception ex) {
             System.err.println("Failed to initialize LaF");
         }
-//        signInUpLogic = SignInUpLogic.getSignInUpLogic(colors, mainLogic);
-//        signInUpLogic.start();
-        
-        MainWindowLogic mainWindowLogic = MainWindowLogic.getMainWindowLogic(colors, mainLogic, null);
-        mainWindowLogic.start();
+        signInUpLogic = SignInUpLogic.getSignInUpLogic(colors, mainLogic);
+        signInUpLogic.start();
+        //Testing design
+//        MainWindowLogic mainWindowLogic = MainWindowLogic.getMainWindowLogic(colors, mainLogic, null);
+//        mainWindowLogic.start();
     }
 
     public void SignUserIn(User user) {
