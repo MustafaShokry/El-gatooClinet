@@ -211,4 +211,16 @@ public class Database implements IDatabaseInfo {
             }
             return -1;
     }
+     public static String getContactPhone(int contactId){
+        setResult("SELECT * FROM `users`");
+            try {
+                result.beforeFirst();
+                while (result.next()){
+                    if (result.getInt(1)==contactId){return result.getString(3);}
+                }
+            } catch (SQLException e) {
+                return null;
+            }
+            return null;
+    }
 }

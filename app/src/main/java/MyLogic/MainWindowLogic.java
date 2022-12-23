@@ -13,6 +13,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.Vector;
 
 public class MainWindowLogic {
@@ -22,13 +24,16 @@ public class MainWindowLogic {
     private static GUIColors colors = null;
     private static MainLogic mainLogic = null;
     private static User user = null;
-    private static HashMap<Integer, String> contactsList;
-    private int activeContactId;
+    private int activeContactId = -200;
+    private String activeContactName;
+    HashMap<Integer, String> contactsList = new HashMap<Integer, String>();
+    Vector<MessageIndentifier> oldvms = new Vector<MessageIndentifier>();
 
     private MainWindowLogic(GUIColors cls, MainLogic ml, User usr) {
         colors = cls;
         mainLogic = ml;
         user = usr;
+        //contactsList.put(1, "Akshay");
     }
 
     public static MainWindowLogic getMainWindowLogic(GUIColors cls, MainLogic ml, User usr) {
@@ -51,6 +56,18 @@ public class MainWindowLogic {
         addLiseners();
         //Loading contacts
         loadContacts();
+        Timer timer = new Timer();
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                if (activeContactId == -200) {
+                    return;
+                }
+
+                
+            }
+        };
+        timer.schedule(task, 2000, 3000);
     }
 
     public void start() {
@@ -74,13 +91,17 @@ public class MainWindowLogic {
 
             return;
         }
-        contactsList = user.contactsNames();
+        HashMap<Integer, String> newcontactsList = user.contactsNames();
 
-        Iterator<Entry<Integer, String>> new_Iterator = contactsList.entrySet().iterator();
-        while (new_Iterator.hasNext()) {
-            Map.Entry<Integer, String> new_Map = (Map.Entry<Integer, String>) new_Iterator.next();
-            renderContact(new_Map.getValue(), new_Map.getKey());
-            System.out.println(new_Map.getValue() + " " + new_Map.getValue() + "     From load contacts");
+        if (!contactsList.equals(newcontactsList)) {
+            contactsList = (HashMap<Integer, String>) newcontactsList.clone();
+            Iterator<Entry<Integer, String>> new_Iterator;
+            new_Iterator = contactsList.entrySet().iterator();
+            while (new_Iterator.hasNext()) {
+                Map.Entry<Integer, String> new_Map = (Map.Entry<Integer, String>) new_Iterator.next();
+                renderContact(new_Map.getValue(), new_Map.getKey());
+                System.out.println(new_Map.getValue() + " " + new_Map.getValue() + "     From load contacts");
+            }
         }
 
     }
@@ -95,28 +116,40 @@ public class MainWindowLogic {
 
     public void loadMessages(int contactId) {
         Vector<MessageIndentifier> vms = Database.loadContact(user.getId(), contactId);
-        for (Integer i = 0; i < vms.size(); i++) {
-            renderMessage(vms.get(i).getMessage(), vms.get(i).isSent());
-        }
+            mainWindowGUI.getChatMessagesPanel().removeAll();
+            mainWindowGUI.getChatMessagesPanel().setSize(600, 535);
+            for (Integer i = 0; i < vms.size(); i++) {
+                renderMessage(vms.get(i).getMessage(), vms.get(i).isSent());
+                System.out.println(oldvms);
+                System.out.println(vms);
+                oldvms = vms;
+            }
     }
+
 
     public void testing() {
 
     }
 
     public void addLiseners() {
-        
+
         //sendinig messages
         mainWindowGUI.getChatSendIconLabel().addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
+                if (activeContactId == -200) {
+                    return;
+                }
                 String messageTxt = mainWindowGUI.getChatSendTextField().getText();
+                if ("".equals(messageTxt)) {
+                    return;
+                }
                 user.sendMessage(activeContactId, messageTxt);
                 renderMessage(messageTxt, true);
                 mainWindowGUI.getChatSendTextField().setText("");
             }
         });
-        
+
         //on Closnig the window change the staste in the database
         mainWindowGUI.addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
@@ -126,7 +159,38 @@ public class MainWindowLogic {
                 Database.insertAndUpdateUsers(user.getId(), null, null, null, null, 0);
             }
         });
-        
+
+        //User profile
+        mainWindowGUI.getUserProfileIconLabel().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                mainWindowGUI.getUserProfileName().setText(user.getName());
+                mainWindowGUI.getUserProfilePhone().setText(user.getPhoneNumber());
+                mainWindowGUI.getUserProfilePassword().setText(user.getPassword());
+                mainWindowGUI.getUserProfileDialog().show();
+            }
+        });
+
+        //Contact profile
+        mainWindowGUI.getOtherUserInfoIconLabel().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                mainWindowGUI.getContactInfoName().setText(activeContactName);
+                mainWindowGUI.getContactInfoPhone().setText(Database.getContactPhone(activeContactId));
+                mainWindowGUI.getContactInfoDialog().show();
+                mainWindowGUI.getContactInfoDeleteBtn()
+                        .addMouseListener(new MouseAdapter() {
+                            @Override
+                            public void mouseClicked(MouseEvent e) {
+                                user.deleteContact(activeContactId);
+                                loadContacts();
+                                mainWindowGUI.getContactInfoDialog().dispose();
+                            }
+                        });
+
+            }
+        });
+
         //Adding contact
         mainWindowGUI.getAddContactIconLabel().addMouseListener(new MouseAdapter() {
             @Override
@@ -138,20 +202,27 @@ public class MainWindowLogic {
         mainWindowGUI.getAddContactBtn().addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-               String contactPhone = mainWindowGUI.getAddContactFied().getText();
-               if(!Validator.getValidator().isPhoneValid(contactPhone)){
-                   mainWindowGUI.showError(mainWindowGUI.getAddContactELabel(), "Invalid Phone number");
-                   return;
-               }
-               int contactID = Database.getContactId(contactPhone);
-               if( contactID == -1){
-                   mainWindowGUI.showError(mainWindowGUI.getAddContactELabel(), "Phone number doesn't exist");
-                   return;
-               }
-               user.addContacts(Integer.toString(contactID));
-               loadContacts();
-               mainWindowGUI.getAddContactFied().setText("");
-               mainWindowGUI.getAddContactDialog().dispose();
+                String contactPhone = mainWindowGUI.getAddContactFied().getText();
+                if (!Validator.getValidator().isPhoneValid(contactPhone)) {
+                    mainWindowGUI.showError(mainWindowGUI.getAddContactELabel(), "Invalid Phone number");
+                    mainWindowGUI.getAddContactFied().setText("");
+                    return;
+                }
+                if (contactPhone.equals(user.getPhoneNumber())) {
+                    mainWindowGUI.showError(mainWindowGUI.getAddContactELabel(), "هتكلم نفسك يا ابن الهبله ؟!!");
+                    mainWindowGUI.getAddContactFied().setText("");
+                    return;
+                }
+                int contactID = Database.getContactId(contactPhone);
+                if (contactID == -1) {
+                    mainWindowGUI.showError(mainWindowGUI.getAddContactELabel(), "Phone number doesn't exist");
+                    mainWindowGUI.getAddContactFied().setText("");
+                    return;
+                }
+                user.addContacts(Integer.toString(contactID));
+                loadContacts();
+                mainWindowGUI.getAddContactFied().setText("");
+                mainWindowGUI.getAddContactDialog().dispose();
             }
         });
 
@@ -164,7 +235,8 @@ public class MainWindowLogic {
                 mainWindowGUI.getChatMessagesPanel().removeAll();
                 mainWindowGUI.getChatMessagesPanel().setSize(600, 535);
                 activeContactId = ccp.getContactId();
-                mainWindowGUI.getOtherUserNameLabel().setText(ccp.getContactName());
+                activeContactName = ccp.getContactName();
+                mainWindowGUI.getOtherUserNameLabel().setText(activeContactName);
                 mainWindowGUI.getOtherUserStateLabel().setText(Database.getContactState(activeContactId) == 1 ? "Online" : "Offline");
                 loadMessages(ccp.getContactId());
             }

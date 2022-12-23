@@ -43,6 +43,25 @@ public class MainChattingWindow extends javax.swing.JFrame {
         SUPhoneNumberLabel1 = new javax.swing.JLabel();
         SUPhoneNumberField1 = new javax.swing.JTextField();
         SUPhoneNumberELabel1 = new javax.swing.JLabel();
+        UserProfileDialog = new javax.swing.JDialog();
+        jPanel3 = new javax.swing.JPanel();
+        label = new javax.swing.JLabel();
+        UserProfileIcon = new javax.swing.JLabel();
+        UserProfileName = new javax.swing.JLabel();
+        UserProfilePhone = new javax.swing.JLabel();
+        UserProfilePassword = new javax.swing.JLabel();
+        UserProfileName1 = new javax.swing.JLabel();
+        UserProfilePassword1 = new javax.swing.JLabel();
+        UserProfilePhone1 = new javax.swing.JLabel();
+        ContactInfoDialog = new javax.swing.JDialog();
+        jPanel4 = new javax.swing.JPanel();
+        ContactInfoDeleteBtn = new javax.swing.JButton();
+        UserProfileIcon1 = new javax.swing.JLabel();
+        UserProfileName2 = new javax.swing.JLabel();
+        ContactInfoName = new javax.swing.JLabel();
+        UserProfilePhone2 = new javax.swing.JLabel();
+        ContactInfoPhone = new javax.swing.JLabel();
+        label1 = new javax.swing.JLabel();
         MainWindowPanel = new javax.swing.JPanel();
         sideBarPanel = new javax.swing.JPanel();
         mainLogoLabel = new javax.swing.JLabel();
@@ -179,6 +198,170 @@ public class MainChattingWindow extends javax.swing.JFrame {
 
         ChangePasswordDialog.getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
+        UserProfileDialog.setAlwaysOnTop(true);
+        UserProfileDialog.setBackground(colors.getMainColor());
+        UserProfileDialog.setLocation(new java.awt.Point(200, 300));
+        UserProfileDialog.setMaximumSize(new java.awt.Dimension(550, 220));
+        UserProfileDialog.setResizable(false);
+        UserProfileDialog.setSize(new java.awt.Dimension(550, 220));
+        UserProfileDialog.setType(java.awt.Window.Type.UTILITY);
+        UserProfileDialog.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel3.setBackground(colors.getMainColor());
+        jPanel3.setMaximumSize(new java.awt.Dimension(550, 220));
+        jPanel3.setMinimumSize(new java.awt.Dimension(550, 220));
+        jPanel3.setPreferredSize(new java.awt.Dimension(550, 220));
+        jPanel3.setRequestFocusEnabled(false);
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        label.setBackground(colors.getMainColor());
+        label.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        label.setForeground(colors.getMainFontColor());
+        label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label.setText("Your Information");
+        label.setMaximumSize(new java.awt.Dimension(300, 30));
+        label.setMinimumSize(new java.awt.Dimension(300, 30));
+        label.setPreferredSize(new java.awt.Dimension(300, 30));
+        jPanel3.add(label, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 10, -1, -1));
+
+        UserProfileIcon.setBackground(new java.awt.Color(31, 32, 41));
+        UserProfileIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/otherUserDeafult.png"))); // NOI18N
+        jPanel3.add(UserProfileIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, -1, -1));
+
+        UserProfileName.setBackground(colors.getMainColor());
+        UserProfileName.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        UserProfileName.setForeground(colors.getMainFontColor());
+        UserProfileName.setText("Name");
+        UserProfileName.setMaximumSize(new java.awt.Dimension(300, 30));
+        UserProfileName.setMinimumSize(new java.awt.Dimension(300, 30));
+        UserProfileName.setPreferredSize(new java.awt.Dimension(150, 30));
+        jPanel3.add(UserProfileName, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, -1, -1));
+
+        UserProfilePhone.setBackground(colors.getMainColor());
+        UserProfilePhone.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        UserProfilePhone.setForeground(colors.getMainFontColor());
+        UserProfilePhone.setText("Phone number");
+        UserProfilePhone.setMaximumSize(new java.awt.Dimension(300, 30));
+        UserProfilePhone.setMinimumSize(new java.awt.Dimension(300, 30));
+        UserProfilePhone.setPreferredSize(new java.awt.Dimension(150, 30));
+        jPanel3.add(UserProfilePhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, -1, -1));
+
+        UserProfilePassword.setBackground(colors.getMainColor());
+        UserProfilePassword.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        UserProfilePassword.setForeground(colors.getMainFontColor());
+        UserProfilePassword.setText("Password");
+        UserProfilePassword.setMaximumSize(new java.awt.Dimension(300, 30));
+        UserProfilePassword.setMinimumSize(new java.awt.Dimension(300, 30));
+        UserProfilePassword.setPreferredSize(new java.awt.Dimension(150, 30));
+        jPanel3.add(UserProfilePassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 90, -1, -1));
+
+        UserProfileName1.setBackground(colors.getMainColor());
+        UserProfileName1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        UserProfileName1.setForeground(colors.getMainFontColor());
+        UserProfileName1.setText("Name");
+        UserProfileName1.setMaximumSize(new java.awt.Dimension(300, 30));
+        UserProfileName1.setMinimumSize(new java.awt.Dimension(300, 30));
+        UserProfileName1.setPreferredSize(new java.awt.Dimension(150, 30));
+        jPanel3.add(UserProfileName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, -1, -1));
+
+        UserProfilePassword1.setBackground(colors.getMainColor());
+        UserProfilePassword1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        UserProfilePassword1.setForeground(colors.getMainFontColor());
+        UserProfilePassword1.setText("Password");
+        UserProfilePassword1.setMaximumSize(new java.awt.Dimension(300, 30));
+        UserProfilePassword1.setMinimumSize(new java.awt.Dimension(300, 30));
+        UserProfilePassword1.setPreferredSize(new java.awt.Dimension(150, 30));
+        jPanel3.add(UserProfilePassword1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, -1, -1));
+
+        UserProfilePhone1.setBackground(colors.getMainColor());
+        UserProfilePhone1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        UserProfilePhone1.setForeground(colors.getMainFontColor());
+        UserProfilePhone1.setText("Phone number");
+        UserProfilePhone1.setMaximumSize(new java.awt.Dimension(300, 30));
+        UserProfilePhone1.setMinimumSize(new java.awt.Dimension(300, 30));
+        UserProfilePhone1.setPreferredSize(new java.awt.Dimension(150, 30));
+        jPanel3.add(UserProfilePhone1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, -1, -1));
+
+        UserProfileDialog.getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        ContactInfoDialog.setAlwaysOnTop(true);
+        ContactInfoDialog.setBackground(colors.getMainColor());
+        ContactInfoDialog.setLocation(new java.awt.Point(200, 300));
+        ContactInfoDialog.setMaximumSize(new java.awt.Dimension(550, 220));
+        ContactInfoDialog.setMinimumSize(new java.awt.Dimension(550, 220));
+        ContactInfoDialog.setPreferredSize(new java.awt.Dimension(550, 220));
+        ContactInfoDialog.setResizable(false);
+        ContactInfoDialog.setSize(new java.awt.Dimension(550, 220));
+        ContactInfoDialog.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel4.setBackground(colors.getMainColor());
+        jPanel4.setMaximumSize(new java.awt.Dimension(400, 220));
+        jPanel4.setMinimumSize(new java.awt.Dimension(400, 220));
+        jPanel4.setPreferredSize(new java.awt.Dimension(550, 220));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        ContactInfoDeleteBtn.setBackground(new java.awt.Color(255, 0, 0));
+        ContactInfoDeleteBtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        ContactInfoDeleteBtn.setForeground(new java.awt.Color(255, 255, 255));
+        ContactInfoDeleteBtn.setText("Delete");
+        ContactInfoDeleteBtn.setBorder(new com.formdev.flatlaf.ui.FlatButtonBorder());
+        ContactInfoDeleteBtn.setMaximumSize(new java.awt.Dimension(300, 35));
+        ContactInfoDeleteBtn.setMinimumSize(new java.awt.Dimension(300, 35));
+        ContactInfoDeleteBtn.setPreferredSize(new java.awt.Dimension(300, 35));
+        jPanel4.add(ContactInfoDeleteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, -1, -1));
+
+        UserProfileIcon1.setBackground(new java.awt.Color(31, 32, 41));
+        UserProfileIcon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/otherUserDeafult.png"))); // NOI18N
+        jPanel4.add(UserProfileIcon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
+
+        UserProfileName2.setBackground(colors.getMainColor());
+        UserProfileName2.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        UserProfileName2.setForeground(colors.getMainFontColor());
+        UserProfileName2.setText("Name");
+        UserProfileName2.setMaximumSize(new java.awt.Dimension(300, 30));
+        UserProfileName2.setMinimumSize(new java.awt.Dimension(300, 30));
+        UserProfileName2.setPreferredSize(new java.awt.Dimension(150, 30));
+        jPanel4.add(UserProfileName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, -1, -1));
+
+        ContactInfoName.setBackground(colors.getMainColor());
+        ContactInfoName.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        ContactInfoName.setForeground(colors.getMainFontColor());
+        ContactInfoName.setText("Name");
+        ContactInfoName.setMaximumSize(new java.awt.Dimension(300, 30));
+        ContactInfoName.setMinimumSize(new java.awt.Dimension(300, 30));
+        ContactInfoName.setPreferredSize(new java.awt.Dimension(150, 30));
+        jPanel4.add(ContactInfoName, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, -1, -1));
+
+        UserProfilePhone2.setBackground(colors.getMainColor());
+        UserProfilePhone2.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        UserProfilePhone2.setForeground(colors.getMainFontColor());
+        UserProfilePhone2.setText("Phone number");
+        UserProfilePhone2.setMaximumSize(new java.awt.Dimension(300, 30));
+        UserProfilePhone2.setMinimumSize(new java.awt.Dimension(300, 30));
+        UserProfilePhone2.setPreferredSize(new java.awt.Dimension(150, 30));
+        jPanel4.add(UserProfilePhone2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, -1, -1));
+
+        ContactInfoPhone.setBackground(colors.getMainColor());
+        ContactInfoPhone.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        ContactInfoPhone.setForeground(colors.getMainFontColor());
+        ContactInfoPhone.setText("Phone number");
+        ContactInfoPhone.setMaximumSize(new java.awt.Dimension(300, 30));
+        ContactInfoPhone.setMinimumSize(new java.awt.Dimension(300, 30));
+        ContactInfoPhone.setPreferredSize(new java.awt.Dimension(150, 30));
+        jPanel4.add(ContactInfoPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, -1, -1));
+
+        label1.setBackground(colors.getMainColor());
+        label1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        label1.setForeground(colors.getMainFontColor());
+        label1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label1.setText("Contact Information");
+        label1.setMaximumSize(new java.awt.Dimension(300, 30));
+        label1.setMinimumSize(new java.awt.Dimension(300, 30));
+        label1.setPreferredSize(new java.awt.Dimension(300, 30));
+        jPanel4.add(label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, -1, -1));
+
+        ContactInfoDialog.getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(985, 732));
         setMinimumSize(new java.awt.Dimension(985, 732));
@@ -291,7 +474,7 @@ public class MainChattingWindow extends javax.swing.JFrame {
 
         otherUserNameLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         otherUserNameLabel.setForeground(new java.awt.Color(246, 246, 247));
-        otherUserNameLabel.setText("Mostafa Shokry");
+        otherUserNameLabel.setText("User");
         otherUserNameLabel.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         otherUserNameLabel.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 15, 0, 0));
         otherUserNameLabel.setIconTextGap(10);
@@ -304,7 +487,6 @@ public class MainChattingWindow extends javax.swing.JFrame {
 
         otherUserStateLabel.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         otherUserStateLabel.setForeground(new java.awt.Color(153, 153, 163));
-        otherUserStateLabel.setText("Online");
         otherUserStateLabel.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         otherUserStateLabel.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 15, 0, 0));
         otherUserStateLabel.setMaximumSize(new java.awt.Dimension(520, 40));
@@ -416,7 +598,7 @@ public class MainChattingWindow extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 733, Short.MAX_VALUE)
+            .addGap(0, 732, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -435,12 +617,27 @@ public class MainChattingWindow extends javax.swing.JFrame {
     private javax.swing.JLabel AddContactELabel;
     private javax.swing.JTextField AddContactFied;
     private javax.swing.JDialog ChangePasswordDialog;
+    private javax.swing.JButton ContactInfoDeleteBtn;
+    private javax.swing.JDialog ContactInfoDialog;
+    private javax.swing.JLabel ContactInfoName;
+    private javax.swing.JLabel ContactInfoPhone;
     private javax.swing.JPanel MainWindowPanel;
     private javax.swing.JLabel SUPhoneNumberELabel1;
     private javax.swing.JTextField SUPhoneNumberField1;
     private javax.swing.JLabel SUPhoneNumberLabel;
     private javax.swing.JLabel SUPhoneNumberLabel1;
     private javax.swing.JButton SUSignUpBtn1;
+    private javax.swing.JDialog UserProfileDialog;
+    private javax.swing.JLabel UserProfileIcon;
+    private javax.swing.JLabel UserProfileIcon1;
+    private javax.swing.JLabel UserProfileName;
+    private javax.swing.JLabel UserProfileName1;
+    private javax.swing.JLabel UserProfileName2;
+    private javax.swing.JLabel UserProfilePassword;
+    private javax.swing.JLabel UserProfilePassword1;
+    private javax.swing.JLabel UserProfilePhone;
+    private javax.swing.JLabel UserProfilePhone1;
+    private javax.swing.JLabel UserProfilePhone2;
     private javax.swing.JLabel addContactIconLabel;
     private javax.swing.JPanel addContactIconPanel;
     private javax.swing.JPanel chatHeaderPanel;
@@ -455,7 +652,11 @@ public class MainChattingWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel label;
+    private javax.swing.JLabel label1;
     private javax.swing.JLabel mainLogoLabel;
     private javax.swing.JLabel otherUserDeafultIconLabel;
     private javax.swing.JPanel otherUserDeafultIconPanel;
@@ -715,5 +916,61 @@ public class MainChattingWindow extends javax.swing.JFrame {
      */
     public javax.swing.JDialog getChangePasswordDialog() {
         return ChangePasswordDialog;
+    }
+
+    /**
+     * @return the UserProfileDialog
+     */
+    public javax.swing.JDialog getUserProfileDialog() {
+        return UserProfileDialog;
+    }
+
+    /**
+     * @return the UserProfileName
+     */
+    public javax.swing.JLabel getUserProfileName() {
+        return UserProfileName;
+    }
+
+    /**
+     * @return the UserProfilePassword
+     */
+    public javax.swing.JLabel getUserProfilePassword() {
+        return UserProfilePassword;
+    }
+
+    /**
+     * @return the UserProfilePhone
+     */
+    public javax.swing.JLabel getUserProfilePhone() {
+        return UserProfilePhone;
+    }
+
+    /**
+     * @return the ContactInfoDeleteBtn
+     */
+    public javax.swing.JButton getContactInfoDeleteBtn() {
+        return ContactInfoDeleteBtn;
+    }
+
+    /**
+     * @return the ContactInfoDialog
+     */
+    public javax.swing.JDialog getContactInfoDialog() {
+        return ContactInfoDialog;
+    }
+
+    /**
+     * @return the ContactInfoName
+     */
+    public javax.swing.JLabel getContactInfoName() {
+        return ContactInfoName;
+    }
+
+    /**
+     * @return the ContactInfoPhone
+     */
+    public javax.swing.JLabel getContactInfoPhone() {
+        return ContactInfoPhone;
     }
 }
