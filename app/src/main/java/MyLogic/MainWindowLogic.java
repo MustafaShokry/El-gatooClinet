@@ -63,8 +63,7 @@ public class MainWindowLogic {
                 if (activeContactId == -200) {
                     return;
                 }
-
-                
+                loadMessages(activeContactId);
             }
         };
         timer.schedule(task, 2000, 3000);
@@ -115,7 +114,8 @@ public class MainWindowLogic {
     }
 
     public void loadMessages(int contactId) {
-        Vector<MessageIndentifier> vms = Database.loadContact(user.getId(), contactId);
+        Vector<MessageIndentifier> vms = Database.loadContact(user.getId(), contactId);   
+        if (oldvms.size() != vms.size()) {
             mainWindowGUI.getChatMessagesPanel().removeAll();
             mainWindowGUI.getChatMessagesPanel().setSize(600, 535);
             for (Integer i = 0; i < vms.size(); i++) {
@@ -124,8 +124,9 @@ public class MainWindowLogic {
                 System.out.println(vms);
                 oldvms = vms;
             }
-    }
+        }
 
+    }
 
     public void testing() {
 

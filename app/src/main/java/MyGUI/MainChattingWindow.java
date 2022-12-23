@@ -12,6 +12,7 @@ public class MainChattingWindow extends javax.swing.JFrame {
         this.colors = colors;
         this.name = nm;
         initComponents();
+        setSize(985, 733);
         setResizable(false);
         
     }
@@ -93,9 +94,7 @@ public class MainChattingWindow extends javax.swing.JFrame {
         AddContactDialog.setAlwaysOnTop(true);
         AddContactDialog.setBackground(colors.getMainColor());
         AddContactDialog.setLocation(new java.awt.Point(200, 300));
-        AddContactDialog.setMaximumSize(new java.awt.Dimension(400, 220));
         AddContactDialog.setMinimumSize(new java.awt.Dimension(400, 220));
-        AddContactDialog.setPreferredSize(new java.awt.Dimension(400, 220));
         AddContactDialog.setResizable(false);
         AddContactDialog.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -148,7 +147,6 @@ public class MainChattingWindow extends javax.swing.JFrame {
         ChangePasswordDialog.setAlwaysOnTop(true);
         ChangePasswordDialog.setBackground(colors.getMainColor());
         ChangePasswordDialog.setLocation(new java.awt.Point(200, 300));
-        ChangePasswordDialog.setMaximumSize(new java.awt.Dimension(400, 220));
         ChangePasswordDialog.setResizable(false);
         ChangePasswordDialog.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -201,7 +199,6 @@ public class MainChattingWindow extends javax.swing.JFrame {
         UserProfileDialog.setAlwaysOnTop(true);
         UserProfileDialog.setBackground(colors.getMainColor());
         UserProfileDialog.setLocation(new java.awt.Point(200, 300));
-        UserProfileDialog.setMaximumSize(new java.awt.Dimension(550, 220));
         UserProfileDialog.setResizable(false);
         UserProfileDialog.setSize(new java.awt.Dimension(550, 220));
         UserProfileDialog.setType(java.awt.Window.Type.UTILITY);
@@ -287,9 +284,7 @@ public class MainChattingWindow extends javax.swing.JFrame {
         ContactInfoDialog.setAlwaysOnTop(true);
         ContactInfoDialog.setBackground(colors.getMainColor());
         ContactInfoDialog.setLocation(new java.awt.Point(200, 300));
-        ContactInfoDialog.setMaximumSize(new java.awt.Dimension(550, 220));
         ContactInfoDialog.setMinimumSize(new java.awt.Dimension(550, 220));
-        ContactInfoDialog.setPreferredSize(new java.awt.Dimension(550, 220));
         ContactInfoDialog.setResizable(false);
         ContactInfoDialog.setSize(new java.awt.Dimension(550, 220));
         ContactInfoDialog.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -363,13 +358,14 @@ public class MainChattingWindow extends javax.swing.JFrame {
         ContactInfoDialog.getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(985, 732));
-        setMinimumSize(new java.awt.Dimension(985, 732));
-        setPreferredSize(new java.awt.Dimension(985, 732));
+        setMaximumSize(new java.awt.Dimension(985, 733));
+        setMinimumSize(new java.awt.Dimension(985, 733));
+        setPreferredSize(new java.awt.Dimension(985, 733));
+        setResizable(false);
 
-        MainWindowPanel.setMaximumSize(new java.awt.Dimension(985, 732));
-        MainWindowPanel.setMinimumSize(new java.awt.Dimension(985, 732));
-        MainWindowPanel.setPreferredSize(new java.awt.Dimension(985, 732));
+        MainWindowPanel.setMaximumSize(new java.awt.Dimension(985, 733));
+        MainWindowPanel.setMinimumSize(new java.awt.Dimension(985, 733));
+        MainWindowPanel.setPreferredSize(new java.awt.Dimension(985, 733));
         MainWindowPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         sideBarPanel.setBackground(colors.getMainColor());
@@ -598,7 +594,7 @@ public class MainChattingWindow extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 732, Short.MAX_VALUE)
+            .addGap(0, 725, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
