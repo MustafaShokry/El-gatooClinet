@@ -31,8 +31,6 @@ public class MainChattingWindow extends javax.swing.JFrame {
         mainLogoLabel = new javax.swing.JLabel();
         chattingIconPanel = new javax.swing.JPanel();
         chattingIconLabel = new javax.swing.JLabel();
-        groupChattingIconPanel = new javax.swing.JPanel();
-        groupChattingIconLabel = new javax.swing.JLabel();
         settingsIconPanel = new javax.swing.JPanel();
         settingsIconLabel = new javax.swing.JLabel();
         userProfileIconPanel = new javax.swing.JPanel();
@@ -89,18 +87,6 @@ public class MainChattingWindow extends javax.swing.JFrame {
         chattingIconPanel.add(chattingIconLabel, new java.awt.GridBagConstraints());
 
         sideBarPanel.add(chattingIconPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, -1, -1));
-
-        groupChattingIconPanel.setBackground(colors.getMainColor());
-        groupChattingIconPanel.setMaximumSize(new java.awt.Dimension(60, 40));
-        groupChattingIconPanel.setMinimumSize(new java.awt.Dimension(60, 40));
-        groupChattingIconPanel.setPreferredSize(new java.awt.Dimension(60, 40));
-        groupChattingIconPanel.setLayout(new java.awt.GridBagLayout());
-
-        groupChattingIconLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/groupChat.png"))); // NOI18N
-        groupChattingIconLabel.setToolTipText("");
-        groupChattingIconPanel.add(groupChattingIconLabel, new java.awt.GridBagConstraints());
-
-        sideBarPanel.add(groupChattingIconPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, -1, -1));
 
         settingsIconPanel.setBackground(colors.getMainColor());
         settingsIconPanel.setMaximumSize(new java.awt.Dimension(60, 40));
@@ -353,8 +339,6 @@ public class MainChattingWindow extends javax.swing.JFrame {
     private javax.swing.JPanel chatsPanel;
     private javax.swing.JLabel chattingIconLabel;
     private javax.swing.JPanel chattingIconPanel;
-    private javax.swing.JLabel groupChattingIconLabel;
-    private javax.swing.JPanel groupChattingIconPanel;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel mainLogoLabel;
     private javax.swing.JLabel otherUserDeafultIconLabel;
@@ -377,7 +361,7 @@ public class MainChattingWindow extends javax.swing.JFrame {
     public void updateUIColors(){
         sideBarPanel.setBackground(colors.getMainColor());
         chattingIconPanel.setBackground(colors.getMainColor());
-        groupChattingIconPanel.setBackground(colors.getMainColor());
+       
         settingsIconPanel.setBackground(colors.getMainColor());
         userProfileIconPanel.setBackground(colors.getMainColor());
         addContactIconPanel.setBackground(colors.getMainColor());
@@ -479,20 +463,6 @@ public class MainChattingWindow extends javax.swing.JFrame {
      */
     public javax.swing.JPanel getChattingIconPanel() {
         return chattingIconPanel;
-    }
-
-    /**
-     * @return the groupChattingIconLabel
-     */
-    public javax.swing.JLabel getGroupChattingIconLabel() {
-        return groupChattingIconLabel;
-    }
-
-    /**
-     * @return the groupChattingIconPanel
-     */
-    public javax.swing.JPanel getGroupChattingIconPanel() {
-        return groupChattingIconPanel;
     }
 
     /**
