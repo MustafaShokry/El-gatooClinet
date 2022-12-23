@@ -36,14 +36,14 @@ public class User {
         this.password = password;
         Database.startConnection(false);
         Database.setResult("SELECT * FROM `users`");
-        Database.insertAndUpdateUsers(id,name,password,null,null);
+        Database.insertAndUpdateUsers(id,name,password,null,null, 1);
     }
     // Name setter: in runtime application and database
     public void setName(String name) {
         this.name = name;
         Database.startConnection(false);
         Database.setResult("SELECT * FROM `users`");
-        Database.insertAndUpdateUsers(id,name,null,null,null);
+        Database.insertAndUpdateUsers(id,name,null,null,null, 1);
         //Database.endConnection();
     }
     // Contacts getter
@@ -62,7 +62,7 @@ public class User {
             // update the contacts in the database
             Database.startConnection(false);
             Database.setResult("SELECT * FROM `users`");
-            Database.insertAndUpdateUsers(id,null,null,null,contacts);
+            Database.insertAndUpdateUsers(id,null,null,null,contacts, 1);
             //Database.endConnection();
         }
     }
@@ -83,7 +83,7 @@ public class User {
         this.phoneNumber = phoneNumber;
         Database.startConnection(false);
         Database.setResult("SELECT * FROM `users`");
-        Database.insertAndUpdateUsers(id,null,null,phoneNumber,null);
+        Database.insertAndUpdateUsers(id,null,null,phoneNumber,null, 1);
         //Database.endConnection();
     }
     // A function that sends a message to the specified contact id
@@ -111,7 +111,7 @@ public class User {
         this.contacts = tmp;
         Database.startConnection(false);
         Database.setResult("SELECT * FROM `users`");
-        Database.insertAndUpdateUsers(this.id,null,null,null,contacts);
+        Database.insertAndUpdateUsers(this.id,null,null,null,contacts, 1);
     }
     public HashMap<Integer,String> contactsNames(){
         HashMap<Integer,String > res = new HashMap<Integer,String>();

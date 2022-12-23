@@ -1,5 +1,7 @@
 package MyGUI;
 
+import java.awt.event.WindowEvent;
+
 public class MainChattingWindow extends javax.swing.JFrame {
 
     private static MainChattingWindow mainWindow = null;
@@ -11,6 +13,7 @@ public class MainChattingWindow extends javax.swing.JFrame {
         this.name = nm;
         initComponents();
         setResizable(false);
+        
     }
 
     public static MainChattingWindow getMainWindow(GUIColors colors,  String nm) {

@@ -88,7 +88,7 @@ public class MainWindowLogic {
     public void renderMessage(String text, boolean thisUser) {
         ChatMessagePanel cmp = new ChatMessagePanel(colors, text, thisUser);
         mainWindowGUI.getChatMessagesPanel().add(cmp, thisUser ? "wrap, al right" : "wrap, al left");
-        mainWindowGUI.reSizeAfterMessage(cmp.getMessageHeight());
+        mainWindowGUI.reSizeAfterMessage(mainWindowGUI.getChatMessagesPanel().getHeight() + cmp.getMessageHeight());
         mainWindowGUI.getChatMessagesPanel().repaint();
         mainWindowGUI.getChatMessagesPanel().revalidate();
     }
@@ -96,8 +96,7 @@ public class MainWindowLogic {
     public void loadMessages(int contactId) {
         Vector<MessageIndentifier> vms = Database.loadContact(user.getId(), contactId);
         for (Integer i = 0; i < vms.size(); i++) {
-            System.out.print(vms.get(i).getMessage() + " " + vms.get(i).getTime()+ " "+ vms.get(i).isSent());
-            System.out.println(" ");
+            renderMessage(vms.get(i).getMessage(), vms.get(i).isSent());
         }
     }
 
@@ -116,12 +115,23 @@ public class MainWindowLogic {
                 mainWindowGUI.getChatSendTextField().setText("");
             }
         });
+
+        mainWindowGUI.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                Database.startConnection(false);
+                Database.setResult("SELECT * FROM `users`");
+                Database.insertAndUpdateUsers(user.getId(), null, null, null, null, 0);
+            }
+        });
     }
 
     public void addListenerToContact(ChatContactPanel ccp) {
         ccp.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
+                mainWindowGUI.getChatMessagesPanel().removeAll();
+                mainWindowGUI.getChatMessagesPanel().setSize(600, 535);
                 activeContactId = ccp.getContactId();
                 loadMessages(ccp.getContactId());
             }

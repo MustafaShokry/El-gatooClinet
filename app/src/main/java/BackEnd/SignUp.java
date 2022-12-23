@@ -42,7 +42,7 @@ public class SignUp extends Logging {
     private static void addAccount(){
         Database.startConnection(false);
         Database.setResult("SELECT * FROM `users`");
-        Database.insertAndUpdateUsers(user.getId(),user.getName(),user.getPassword(),user.getPhoneNumber(),user.getContacts());
+        Database.insertAndUpdateUsers(user.getId(),user.getName(),user.getPassword(),user.getPhoneNumber(),user.getContacts(), 1);
         //Database.endConnection();
     }
 }

@@ -117,7 +117,7 @@ public class Database implements IDatabaseInfo {
 
     }
     // A function used for inserting a complete row or update a specific field in users table
-    public static boolean insertAndUpdateUsers(int id, String name,String password, String phoneNumber, String contacts){
+    public static boolean insertAndUpdateUsers(int id, String name, String password, String phoneNumber, String contacts, int state){
         try {
             // Moving the result pointer to the position before the first row
             result.beforeFirst();
@@ -131,6 +131,7 @@ public class Database implements IDatabaseInfo {
                         if (phoneNumber!=null)result.updateString(3,phoneNumber);
                         if (contacts!=null)result.updateString(4,contacts);
                         if (password!=null)result.updateString(6,password);
+                        if (state == 0)result.updateInt(5,0);
                         result.updateRow();
                         break;
                     }
@@ -177,7 +178,6 @@ public class Database implements IDatabaseInfo {
                 while (result.next()){
                     int fromId = result.getInt(2);
                     boolean sent = (fromId==id);
-                    System.out.println("The from id, the POV id"+fromId + " " + id + sent       );
                     String message = result.getString(5);
                     Timestamp time = result.getTimestamp(4);
                     messages.add(new MessageIndentifier(message,sent,time));
