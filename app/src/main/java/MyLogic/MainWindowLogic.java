@@ -63,6 +63,7 @@ public class MainWindowLogic {
                 if (activeContactId == -200) {
                     return;
                 }
+                mainWindowGUI.getOtherUserStateLabel().setText(Database.getContactState(activeContactId) == 1 ? "Online" : "Offline");
                 loadMessages(activeContactId);
             }
         };
@@ -108,7 +109,7 @@ public class MainWindowLogic {
     public void renderMessage(String text, boolean thisUser) {
         ChatMessagePanel cmp = new ChatMessagePanel(colors, text, thisUser);
         mainWindowGUI.getChatMessagesPanel().add(cmp, thisUser ? "wrap, al right" : "wrap, al left");
-        mainWindowGUI.reSizeAfterMessage(mainWindowGUI.getChatMessagesPanel().getHeight() + cmp.getMessageHeight());
+        //mainWindowGUI.reSizeAfterMessage(mainWindowGUI.getChatMessagesPanel().getHeight() + cmp.getMessageHeight());
         mainWindowGUI.getChatMessagesPanel().repaint();
         mainWindowGUI.getChatMessagesPanel().revalidate();
     }
@@ -233,8 +234,6 @@ public class MainWindowLogic {
         ccp.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                mainWindowGUI.getChatMessagesPanel().removeAll();
-                mainWindowGUI.getChatMessagesPanel().setSize(600, 535);
                 activeContactId = ccp.getContactId();
                 activeContactName = ccp.getContactName();
                 mainWindowGUI.getOtherUserNameLabel().setText(activeContactName);
