@@ -97,7 +97,7 @@ public class MainChattingWindow extends javax.swing.JFrame {
         settingsIconLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/settings.png"))); // NOI18N
         settingsIconPanel.add(settingsIconLabel, new java.awt.GridBagConstraints());
 
-        sideBarPanel.add(settingsIconPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, -1, -1));
+        sideBarPanel.add(settingsIconPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, -1, -1));
 
         userProfileIconPanel.setBackground(colors.getMainColor());
         userProfileIconPanel.setMaximumSize(new java.awt.Dimension(60, 40));
@@ -140,14 +140,12 @@ public class MainChattingWindow extends javax.swing.JFrame {
         searchTextField.setBackground(colors.getSecondaryColor());
         searchTextField.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 0, new java.awt.Color(39, 40, 49)), javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1)));
         searchTextField.setForeground(new java.awt.Color(246, 246, 247));
-        searchTextField.setText("Search or start a new chat");
+        searchTextField.setText("Search in the contacts");
         searchTextField.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         searchTextField.setHighlighter(null);
         searchTextField.setMaximumSize(new java.awt.Dimension(250, 40));
         searchTextField.setMinimumSize(new java.awt.Dimension(250, 40));
         searchTextField.setPreferredSize(new java.awt.Dimension(250, 40));
-        searchTextField.setSelectionEnd(0);
-        searchTextField.setSelectionStart(0);
         searchContainerPanel.add(searchTextField, new java.awt.GridBagConstraints());
 
         searchIconLabel.setBackground(colors.getSecondaryColor());
