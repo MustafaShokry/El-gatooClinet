@@ -15,6 +15,7 @@ public class SignUp extends Logging {
         // Selecting users table
         Database.setResult("SELECT * FROM `users`");
         ResultSet result = Database.getResult();
+        Integer newId;
         try {
             // looping over the table, if the phone is registered before return null as an indication for failure
             while (result.next()){
@@ -26,9 +27,14 @@ public class SignUp extends Logging {
                 }
             }
             // If phone is new, generate new id to the user and create it
-            int newId = Database.idGenerator();
-            Database.endConnection();
-            user = new User(name,"",newId,phoneNumber,password);
+            
+            newId = Database.idGenerator();
+            if(newId == null){
+                System.out.println("Null from IDgenerator");
+                return null;
+            }
+            //Database.endConnection();
+            user = new User(name,"",(int)newId,phoneNumber,password);
             // update the users table with new account
             addAccount();
             return user;

@@ -25,6 +25,7 @@ public class MainWindowLogic {
     private static MainLogic mainLogic = null;
     private static User user = null;
     private int activeContactId = -200;
+    private int newActiveContactId = -100;
     private String activeContactName;
     HashMap<Integer, String> contactsList = new HashMap<Integer, String>();
     Vector<MessageIndentifier> oldvms = new Vector<MessageIndentifier>();
@@ -64,7 +65,7 @@ public class MainWindowLogic {
                     return;
                 }
                 mainWindowGUI.getOtherUserStateLabel().setText(Database.getContactState(activeContactId) == 1 ? "Online" : "Offline");
-                loadMessages(activeContactId);
+                AutoLoader(activeContactId);
             }
         };
         timer.schedule(task, 2000, 3000);
@@ -114,9 +115,33 @@ public class MainWindowLogic {
         mainWindowGUI.getChatMessagesPanel().revalidate();
     }
 
+    public void AutoLoader(int contactId) {
+        Vector<MessageIndentifier> vms = Database.loadContact(user.getId(), contactId);
+        if (vms != null) {
+            if (newActiveContactId != activeContactId) {
+                mainWindowGUI.getChatMessagesPanel().removeAll();
+                mainWindowGUI.getChatMessagesPanel().setSize(600, 535);
+                newActiveContactId = activeContactId;
+            }
+
+            if (oldvms.size() != vms.size()) {
+                mainWindowGUI.getChatMessagesPanel().removeAll();
+                mainWindowGUI.getChatMessagesPanel().setSize(600, 535);
+                for (Integer i = 0; i < vms.size(); i++) {
+                    renderMessage(vms.get(i).getMessage(), vms.get(i).isSent());
+                    System.out.println(oldvms);
+                    System.out.println(vms);
+                    oldvms = vms;
+                }
+            }
+
+        }
+
+    }
+
     public void loadMessages(int contactId) {
-        Vector<MessageIndentifier> vms = Database.loadContact(user.getId(), contactId);   
-        if (oldvms.size() != vms.size()) {
+        Vector<MessageIndentifier> vms = Database.loadContact(user.getId(), contactId);
+        if (vms != null) {
             mainWindowGUI.getChatMessagesPanel().removeAll();
             mainWindowGUI.getChatMessagesPanel().setSize(600, 535);
             for (Integer i = 0; i < vms.size(); i++) {
@@ -125,6 +150,7 @@ public class MainWindowLogic {
                 System.out.println(vms);
                 oldvms = vms;
             }
+
         }
 
     }
