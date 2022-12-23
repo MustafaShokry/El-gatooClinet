@@ -3,7 +3,7 @@ package MyGUI;
 public class ChatContactPanel extends javax.swing.JPanel {
 
     private static GUIColors colors = null;
-    private static String name = "";
+    private String name = "";
     private int contactId;
 
     public ChatContactPanel(GUIColors cls, String name, int contactid) {
@@ -62,6 +62,9 @@ public class ChatContactPanel extends javax.swing.JPanel {
      */
     public int getContactId() {
         return contactId;
+    }
+    public String getContactName(){
+        return name;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

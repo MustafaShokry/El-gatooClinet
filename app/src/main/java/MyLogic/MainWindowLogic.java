@@ -133,6 +133,7 @@ public class MainWindowLogic {
                 mainWindowGUI.getChatMessagesPanel().removeAll();
                 mainWindowGUI.getChatMessagesPanel().setSize(600, 535);
                 activeContactId = ccp.getContactId();
+                mainWindowGUI.getOtherUserNameLabel().setText(ccp.getContactName());
                 loadMessages(ccp.getContactId());
             }
 
