@@ -10,6 +10,7 @@ public class SignInUPWindow extends javax.swing.JFrame {
     private SignInUPWindow(GUIColors cls) {
         colors = cls;
         initComponents();
+        setResizable(false);
     }
 
     public static SignInUPWindow getSignInUPWindow(GUIColors cls) {

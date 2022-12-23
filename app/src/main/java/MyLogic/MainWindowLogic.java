@@ -68,7 +68,7 @@ public class MainWindowLogic {
                 AutoLoader(activeContactId);
             }
         };
-        timer.schedule(task, 2000, 3000);
+        timer.schedule(task, 2000, 1000);
     }
 
     public void start() {
@@ -173,7 +173,6 @@ public class MainWindowLogic {
                     return;
                 }
                 user.sendMessage(activeContactId, messageTxt);
-                renderMessage(messageTxt, true);
                 mainWindowGUI.getChatSendTextField().setText("");
             }
         });
@@ -248,6 +247,7 @@ public class MainWindowLogic {
                     return;
                 }
                 user.addContacts(Integer.toString(contactID));
+                user.sendMessage(contactID, user.getPhoneNumber()+" Started contacting "+Database.getContactPhone(contactID));
                 loadContacts();
                 mainWindowGUI.getAddContactFied().setText("");
                 mainWindowGUI.getAddContactDialog().dispose();
