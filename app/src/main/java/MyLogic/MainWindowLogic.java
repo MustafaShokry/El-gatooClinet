@@ -109,6 +109,7 @@ public class MainWindowLogic {
                 String messageTxt = mainWindowGUI.getChatSendTextField().getText();
                 user.sendMessage(activeContactId, messageTxt);
                 renderMessage(messageTxt, true);
+                mainWindowGUI.getChatSendTextField().setText("");
             }
         });
     }
