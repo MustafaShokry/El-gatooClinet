@@ -57,13 +57,13 @@ public class MainChattingWindow extends javax.swing.JFrame {
         chatSendIconLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(970, 732));
-        setMinimumSize(new java.awt.Dimension(970, 732));
-        setPreferredSize(new java.awt.Dimension(970, 732));
+        setMaximumSize(new java.awt.Dimension(985, 732));
+        setMinimumSize(new java.awt.Dimension(985, 732));
+        setPreferredSize(new java.awt.Dimension(985, 732));
 
-        MainWindowPanel.setMaximumSize(new java.awt.Dimension(970, 732));
-        MainWindowPanel.setMinimumSize(new java.awt.Dimension(970, 732));
-        MainWindowPanel.setPreferredSize(new java.awt.Dimension(970, 732));
+        MainWindowPanel.setMaximumSize(new java.awt.Dimension(985, 732));
+        MainWindowPanel.setMinimumSize(new java.awt.Dimension(985, 732));
+        MainWindowPanel.setPreferredSize(new java.awt.Dimension(985, 732));
         MainWindowPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         sideBarPanel.setBackground(colors.getMainColor());

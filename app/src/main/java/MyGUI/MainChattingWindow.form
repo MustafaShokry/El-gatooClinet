@@ -4,13 +4,13 @@
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[970, 732]"/>
+      <Dimension value="[985, 732]"/>
     </Property>
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[970, 732]"/>
+      <Dimension value="[985, 732]"/>
     </Property>
     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[970, 732]"/>
+      <Dimension value="[985, 732]"/>
     </Property>
   </Properties>
   <SyntheticProperties>
@@ -59,13 +59,13 @@
     <Container class="javax.swing.JPanel" name="MainWindowPanel">
       <Properties>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[970, 732]"/>
+          <Dimension value="[985, 732]"/>
         </Property>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[970, 732]"/>
+          <Dimension value="[985, 732]"/>
         </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[970, 732]"/>
+          <Dimension value="[985, 732]"/>
         </Property>
       </Properties>
 

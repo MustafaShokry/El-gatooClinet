@@ -47,7 +47,7 @@ public class MainWindowLogic {
         mainWindowGUI.getChatsPanel().setLayout(new net.miginfocom.swing.MigLayout("fillx"));
 
         //Loading contacts
-        loadContacts();
+        //loadContacts();
     }
 
     public void start() {
