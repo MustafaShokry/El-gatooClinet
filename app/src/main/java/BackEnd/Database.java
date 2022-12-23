@@ -170,9 +170,8 @@ public class Database implements IDatabaseInfo {
         }
         return true;
     }
-    public static Vector<MessageIndentifier> loadContact(int id, String contactId){
-        int conId = Integer.parseInt(contactId);
-        setResult("SELECT * FROM `private chat` WHERE (`FromId`= "+id+" OR `ToId` = "+id+") AND ( `ToId` = "+conId+" OR `FromId` = "+conId+")");
+    public static Vector<MessageIndentifier> loadContact(int id, int contactId){
+        setResult("SELECT * FROM `private chat` WHERE (`FromId`= "+id+" OR `ToId` = "+id+") AND ( `ToId` = "+contactId+" OR `FromId` = "+contactId+")");
         Vector<MessageIndentifier> messages = new Vector<MessageIndentifier>();
             try {
                 while (result.next()){

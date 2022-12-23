@@ -1,10 +1,5 @@
 package MyGUI;
 
-import MyLogic.MainLogic;
-import MyLogic.MainWindowLogic;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-
 public class ChatContactPanel extends javax.swing.JPanel {
 
     private static GUIColors colors = null;
@@ -12,7 +7,7 @@ public class ChatContactPanel extends javax.swing.JPanel {
     private int contactId;
 
     public ChatContactPanel(GUIColors cls, String name, int contactid) {
-        
+
         colors = cls;
         this.name = name;
         contactId = contactid;
@@ -33,11 +28,6 @@ public class ChatContactPanel extends javax.swing.JPanel {
         setMaximumSize(new java.awt.Dimension(300, 80));
         setMinimumSize(new java.awt.Dimension(300, 80));
         setPreferredSize(new java.awt.Dimension(300, 80));
-        addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                formMouseClicked(evt);
-            }
-        });
         java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
         layout.columnWidths = new int[] {0, 10, 0};
         layout.rowHeights = new int[] {0};
@@ -67,12 +57,6 @@ public class ChatContactPanel extends javax.swing.JPanel {
         add(otherUserNameLabel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
-        // TODO add your handling code here:
-        //MainWindowLogic.getMainWindowLogicT().loadMessages(getContactId());
-        //System.out.println(contactId);
-    }//GEN-LAST:event_formMouseClicked
-   
     /**
      * @return the contactId
      */
