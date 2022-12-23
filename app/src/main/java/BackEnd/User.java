@@ -116,7 +116,7 @@ public class User {
         Database.setResult("SELECT * FROM `users`");
         Database.insertAndUpdateUsers(this.id,null,null,null,contacts);
     }
-    HashMap<Integer,String> contactsNames(){
+    public HashMap<Integer,String> contactsNames(){
         HashMap<Integer,String > res = new HashMap<Integer,String>();
         if (contacts.length()!=0){
             Database.startConnection(true);

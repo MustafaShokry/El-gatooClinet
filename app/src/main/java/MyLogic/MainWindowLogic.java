@@ -8,6 +8,10 @@ import MyGUI.MainChattingWindow;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
 
 public class MainWindowLogic {
 
@@ -16,6 +20,7 @@ public class MainWindowLogic {
     private static GUIColors colors = null;
     private static MainLogic mainLogic = null;
     private static User user = null;
+    private static HashMap<Integer, String> contactsList;
 
     private MainWindowLogic(GUIColors cls, MainLogic ml, User usr) {
         colors = cls;
@@ -40,13 +45,16 @@ public class MainWindowLogic {
         //Setting up Layouts
         mainWindowGUI.getChatMessagesPanel().setLayout(new net.miginfocom.swing.MigLayout("fillx"));
         mainWindowGUI.getChatsPanel().setLayout(new net.miginfocom.swing.MigLayout("fillx"));
+
+        //Loading contacts
+        loadContacts();
     }
 
     public void start() {
         setup();
         testing();
         mainWindowGUI.setVisible(true);
-        
+
     }
 
     public void renderContact(String name) {
@@ -54,6 +62,25 @@ public class MainWindowLogic {
         mainWindowGUI.getChatsPanel().add(ccp, "wrap, al center");
         mainWindowGUI.getChatsPanel().repaint();
         mainWindowGUI.getChatsPanel().revalidate();
+    }
+
+    public void loadContacts() {
+        if (user.getContacts().length() == 0) {
+
+            return;
+        }
+        contactsList = user.contactsNames();
+
+        // Iterator
+        Iterator<Entry<Integer, String>> new_Iterator = contactsList.entrySet().iterator();
+
+        // Iterating every set of entry in the HashMap
+        while (new_Iterator.hasNext()) {
+            Map.Entry<Integer, String> new_Map = (Map.Entry<Integer, String>) new_Iterator.next();
+            renderContact(new_Map.getValue());
+
+        }
+
     }
 
     public void renderMessage(String text, boolean thisUser) {
