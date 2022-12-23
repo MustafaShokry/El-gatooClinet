@@ -3,7 +3,9 @@ package BackEnd;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 // Class for creating operations on user
 public class User {
@@ -58,6 +60,9 @@ public class User {
     // Contacts setter: adds new contact to string contacts in runtime and database
     public void addContacts(String contact) {
         // checks if the contact is new
+        if (contact == null) {
+            return;
+        }
         if (!contacts.contains(contact)) {
             if (contacts.length() == 0) {
                 this.contacts += contact;
@@ -110,25 +115,28 @@ public class User {
 
     // A function that deletes a contact from the contacts list by specifying its id
     public void deleteContact(int contactId) {
-        String Id = Integer.toString(contactId);
-        String tmp = "";
-        // Checks if the contact in the contacts list
-        if (contacts.contains(Id)) {
-            // Creating the new contacts list after removing the specified one
-            int index = contacts.indexOf(Id);
-            try {
-                if ("-".equals(contacts.substring(index + 1, index + 2))) {
-                    tmp += contacts.substring(0, index);
-                    tmp += contacts.substring(index + 2);
-                } else {
-                    tmp += contacts.substring(0, index);
-                    tmp += contacts.substring(index + 1);
-                }
 
-            } catch (Exception e) {
+        String Id = Integer.toString(contactId);
+        String[] temp = contacts.split("-");
+        if (temp.length != 1) {
+
+            String[] res = new String[temp.length - 1];
+            int j = 0;
+            for (int i = 0; i < temp.length; ++i) {
+                if (!"-".equals(temp[i])) {
+                    if (Id.equals(temp[i])) {
+                        continue;
+                    }
+                    res[j] = temp[i];
+                    j++;
+                }
             }
+            contacts = String.join("-", res);
+
+        } else {
+            contacts = "";
         }
-        this.contacts = tmp;
+
         Database.startConnection(false);
         Database.setResult("SELECT * FROM `users`");
         Database.insertAndUpdateUsers(this.id, null, null, null, contacts, 1);

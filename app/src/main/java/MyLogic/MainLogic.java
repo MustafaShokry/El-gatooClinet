@@ -35,9 +35,6 @@ public class MainLogic {
         }
         signInUpLogic = SignInUpLogic.getSignInUpLogic(colors, mainLogic);
         signInUpLogic.start();
-        //Testing design
-//        MainWindowLogic mainWindowLogic = MainWindowLogic.getMainWindowLogic(colors, mainLogic, null);
-//        mainWindowLogic.start();
     }
 
     public void SignUserIn(User user) {

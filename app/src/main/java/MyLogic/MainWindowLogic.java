@@ -73,7 +73,6 @@ public class MainWindowLogic {
 
     public void start() {
         setup();
-        testing();
         mainWindowGUI.setVisible(true);
 
     }
@@ -88,23 +87,19 @@ public class MainWindowLogic {
 
     public void loadContacts() {
         mainWindowGUI.getChatsPanel().removeAll();
+        mainWindowGUI.repaint();
+        mainWindowGUI.revalidate();
         if (user.getContacts().length() == 0) {
-
             return;
         }
-        HashMap<Integer, String> newcontactsList = user.contactsNames();
-
-        if (!contactsList.equals(newcontactsList)) {
-            contactsList = (HashMap<Integer, String>) newcontactsList.clone();
-            Iterator<Entry<Integer, String>> new_Iterator;
-            new_Iterator = contactsList.entrySet().iterator();
-            while (new_Iterator.hasNext()) {
-                Map.Entry<Integer, String> new_Map = (Map.Entry<Integer, String>) new_Iterator.next();
-                renderContact(new_Map.getValue(), new_Map.getKey());
-                System.out.println(new_Map.getValue() + " " + new_Map.getValue() + "     From load contacts");
-            }
+        contactsList = user.contactsNames();
+        Iterator<Entry<Integer, String>> new_Iterator;
+        new_Iterator = contactsList.entrySet().iterator();
+        while (new_Iterator.hasNext()) {
+            Map.Entry<Integer, String> new_Map = (Map.Entry<Integer, String>) new_Iterator.next();
+            renderContact(new_Map.getValue(), new_Map.getKey());
+            System.out.println(new_Map.getValue() + " " + new_Map.getValue() + "     From load contacts");
         }
-
     }
 
     public void renderMessage(String text, boolean thisUser) {
@@ -155,9 +150,6 @@ public class MainWindowLogic {
 
     }
 
-    public void testing() {
-
-    }
 
     public void addLiseners() {
 
@@ -165,15 +157,7 @@ public class MainWindowLogic {
         mainWindowGUI.getChatSendIconLabel().addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (activeContactId == -200) {
-                    return;
-                }
-                String messageTxt = mainWindowGUI.getChatSendTextField().getText();
-                if ("".equals(messageTxt)) {
-                    return;
-                }
-                user.sendMessage(activeContactId, messageTxt);
-                mainWindowGUI.getChatSendTextField().setText("");
+
             }
         });
 
@@ -236,7 +220,7 @@ public class MainWindowLogic {
                     return;
                 }
                 if (contactPhone.equals(user.getPhoneNumber())) {
-                    mainWindowGUI.showError(mainWindowGUI.getAddContactELabel(), "هتكلم نفسك يا ابن الهبله ؟!!");
+                    mainWindowGUI.showError(mainWindowGUI.getAddContactELabel(), "You can't add yourself");
                     mainWindowGUI.getAddContactFied().setText("");
                     return;
                 }
@@ -247,7 +231,7 @@ public class MainWindowLogic {
                     return;
                 }
                 user.addContacts(Integer.toString(contactID));
-                user.sendMessage(contactID, user.getPhoneNumber()+" Started contacting "+Database.getContactPhone(contactID));
+                user.sendMessage(contactID, user.getPhoneNumber() + " Started contacting " + Database.getContactPhone(contactID));
                 loadContacts();
                 mainWindowGUI.getAddContactFied().setText("");
                 mainWindowGUI.getAddContactDialog().dispose();
@@ -270,4 +254,19 @@ public class MainWindowLogic {
         });
     }
 
+    public void handlerSend() {
+        if (activeContactId == -200) {
+            return;
+        }
+        String messageTxt = mainWindowGUI.getChatSendTextField().getText();
+        if ("".equals(messageTxt)) {
+            return;
+        }
+        user.sendMessage(activeContactId, messageTxt);
+        mainWindowGUI.getChatSendTextField().setText("");
+    }
+
+    public static MainWindowLogic getMainWindowLogic() {
+        return mainWindowLogic;
+    }
 }

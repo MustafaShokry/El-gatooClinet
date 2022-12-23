@@ -22,6 +22,7 @@ public class Validator {
         }
         return validator;
     }
+    
     public boolean isPhoneValid(String s) {
         Pattern p = Pattern.compile("^\\d{11}$");
         Matcher m = p.matcher(s);

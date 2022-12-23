@@ -1,5 +1,6 @@
 package MyGUI;
 
+import MyLogic.MainWindowLogic;
 import java.awt.event.WindowEvent;
 
 public class MainChattingWindow extends javax.swing.JFrame {
@@ -69,7 +70,6 @@ public class MainChattingWindow extends javax.swing.JFrame {
         chattingIconPanel = new javax.swing.JPanel();
         chattingIconLabel = new javax.swing.JLabel();
         settingsIconPanel = new javax.swing.JPanel();
-        settingsIconLabel = new javax.swing.JLabel();
         userProfileIconPanel = new javax.swing.JPanel();
         userProfileIconLabel = new javax.swing.JLabel();
         addContactIconPanel = new javax.swing.JPanel();
@@ -360,7 +360,6 @@ public class MainChattingWindow extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(985, 733));
         setMinimumSize(new java.awt.Dimension(985, 733));
-        setPreferredSize(new java.awt.Dimension(985, 733));
         setResizable(false);
 
         MainWindowPanel.setMaximumSize(new java.awt.Dimension(985, 733));
@@ -388,17 +387,13 @@ public class MainChattingWindow extends javax.swing.JFrame {
         chattingIconLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/chat.png"))); // NOI18N
         chattingIconPanel.add(chattingIconLabel, new java.awt.GridBagConstraints());
 
-        sideBarPanel.add(chattingIconPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, -1, -1));
+        sideBarPanel.add(chattingIconPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, -1, -1));
 
         settingsIconPanel.setBackground(colors.getMainColor());
         settingsIconPanel.setMaximumSize(new java.awt.Dimension(60, 40));
         settingsIconPanel.setMinimumSize(new java.awt.Dimension(60, 40));
         settingsIconPanel.setPreferredSize(new java.awt.Dimension(60, 40));
         settingsIconPanel.setLayout(new java.awt.GridBagLayout());
-
-        settingsIconLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/settings.png"))); // NOI18N
-        settingsIconPanel.add(settingsIconLabel, new java.awt.GridBagConstraints());
-
         sideBarPanel.add(settingsIconPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, -1, -1));
 
         userProfileIconPanel.setBackground(colors.getMainColor());
@@ -574,6 +569,11 @@ public class MainChattingWindow extends javax.swing.JFrame {
         chatSendTextField.setPreferredSize(new java.awt.Dimension(550, 40));
         chatSendTextField.setSelectionEnd(0);
         chatSendTextField.setSelectionStart(0);
+        chatSendTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                chatSendTextFieldKeyPressed(evt);
+            }
+        });
         chatSendPanel.add(chatSendTextField, new java.awt.GridBagConstraints());
 
         chatSendIconLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/send.png"))); // NOI18N
@@ -605,6 +605,13 @@ public class MainChattingWindow extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void chatSendTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_chatSendTextFieldKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyChar()=='\n'){
+            MainWindowLogic.getMainWindowLogic().handlerSend();
+        }
+    }//GEN-LAST:event_chatSendTextFieldKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -661,7 +668,6 @@ public class MainChattingWindow extends javax.swing.JFrame {
     private javax.swing.JLabel otherUserNameLabel;
     private javax.swing.JLabel otherUserStateLabel;
     private javax.swing.JPanel searchPanel;
-    private javax.swing.JLabel settingsIconLabel;
     private javax.swing.JPanel settingsIconPanel;
     private javax.swing.JPanel sideBarPanel;
     private javax.swing.JLabel userProfileIconLabel;
@@ -847,9 +853,7 @@ public class MainChattingWindow extends javax.swing.JFrame {
     /**
      * @return the settingsIconLabel
      */
-    public javax.swing.JLabel getSettingsIconLabel() {
-        return settingsIconLabel;
-    }
+   
 
     /**
      * @return the settingsIconPanel
