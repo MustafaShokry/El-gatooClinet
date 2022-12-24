@@ -157,7 +157,7 @@ public class MainWindowLogic {
         mainWindowGUI.getChatSendIconLabel().addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-
+                handlerSend();
             }
         });
 
