@@ -42,15 +42,4 @@ public class MainLogic {
         mainWindowLogic.start();
     }
 
-    //Changing the mode still requires some modifications
-    public void changeMode() {
-        colors.changeMode();
-        try {
-            UIManager.setLookAndFeel(colors.getMode() ? new com.formdev.flatlaf.FlatDarkLaf() : new com.formdev.flatlaf.FlatLightLaf());
-        } catch (Exception ex) {
-            System.err.println("Failed to initialize LaF");
-        }
-        //mainWindow.updateUIColors();
-    }
-
 }
